@@ -98,14 +98,14 @@
       <td align="center" width="200">
         <a href="https://github.com/iamminseo">
           <img src="https://github.com/iamminseo.png" width="100" height="100" alt="iamminseo"/>
-          <br/><b>iamminseo</b>
+          <br/><b>나민서</b>
         </a>
         <br/><sub><b>B · 부스 Jetson 앱<br/>진단 에이전트 · 학습 촬영</b></sub>
       </td>
       <td align="center" width="200">
         <a href="https://github.com/practicech">
           <img src="https://github.com/practicech.png" width="100" height="100" alt="practicech"/>
-          <br/><b>practicech</b>
+          <br/><b>강성찬</b>
         </a>
         <br/><sub><b>C · 웹 화면 · 폰 촬영<br/>3D 리포트 · 검증 페이지</b></sub>
       </td>
