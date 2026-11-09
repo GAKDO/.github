@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-label="출고·수령·반납 세 시점과 해시 체인 봉인">
+  <style>
+    .t{font-family:Pretendard,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif}
+    .card{opacity:.55;animation:on 6s ease-in-out infinite}
+    .c2{animation-delay:2s}.c3{animation-delay:4s}
+    @keyframes on{0%,40%,100%{opacity:.55}8%,30%{opacity:1}}
+    .ring{opacity:0;animation:ring 6s ease-in-out infinite}
+    @keyframes ring{0%,40%,100%{opacity:0}8%,30%{opacity:1}}
+    .flow{stroke-dasharray:6 8;animation:dash 1.2s linear infinite}
+    @keyframes dash{to{stroke-dashoffset:-14}}
+    .blk{opacity:.45;animation:blk 6s ease-in-out infinite}
+    @keyframes blk{0%,100%{opacity:.45}10%,32%{opacity:1}}
+    .seal{transform-box:fill-box;transform-origin:center;animation:seal 6s ease-in-out infinite}
+    @keyframes seal{0%,70%,100%{transform:rotate(0) scale(1)}82%{transform:rotate(-12deg) scale(1.12)}90%{transform:rotate(0) scale(1)}}
+    @media (prefers-reduced-motion:reduce){.card,.ring,.flow,.blk,.seal{animation:none;opacity:1}}
+  </style>
+  <rect width="1200" height="400" rx="20" fill="#0b0b0f"/>
+  <g class="t">
+    <text x="48" y="54" fill="#ff5a5f" font-size="14" font-weight="700" letter-spacing="2">HOW IT WORKS</text>
+    <text x="48" y="86" fill="#fff" font-size="26" font-weight="800" letter-spacing="-1">세 번 찍고, 한 줄로 잇고, 봉인합니다</text>
+
+    <!-- 시점 카드 -->
+    <g transform="translate(48 116)">
+      <g class="card"><rect width="336" height="132" rx="16" fill="#16161c" stroke="#2c2c33"/>
+        <rect class="ring" x=".5" y=".5" width="335" height="131" rx="15.5" fill="none" stroke="#c8161d" stroke-width="2"/>
+        <text x="24" y="40" fill="#ff5a5f" font-size="13" font-weight="700">01 · OUT</text>
+        <text x="24" y="74" fill="#fff" font-size="24" font-weight="800">출고</text>
+        <text x="24" y="104" fill="#a1a1aa" font-size="14.5">부스 카메라 2대 × 조명 3개로 촬영,</text>
+        <text x="24" y="124" fill="#a1a1aa" font-size="14.5">Jetson의 YOLO11-seg가 흠집 후보 표시</text></g>
+      <g class="card c2" transform="translate(384 0)"><rect width="336" height="132" rx="16" fill="#16161c" stroke="#2c2c33"/>
+        <rect class="ring c2" x=".5" y=".5" width="335" height="131" rx="15.5" fill="none" stroke="#c8161d" stroke-width="2" style="animation-delay:2s"/>
+        <text x="24" y="40" fill="#ff5a5f" font-size="13" font-weight="700">02 · RECEIVE</text>
+        <text x="24" y="74" fill="#fff" font-size="24" font-weight="800">수령</text>
+        <text x="24" y="104" fill="#a1a1aa" font-size="14.5">고객이 QR로 들어와 폰으로 촬영,</text>
+        <text x="24" y="124" fill="#a1a1aa" font-size="14.5">출고 때 사진과 나란히 비교</text></g>
+      <g class="card c3" transform="translate(768 0)"><rect width="336" height="132" rx="16" fill="#16161c" stroke="#2c2c33"/>
+        <rect class="ring" x=".5" y=".5" width="335" height="131" rx="15.5" fill="none" stroke="#c8161d" stroke-width="2" style="animation-delay:4s"/>
+        <text x="24" y="40" fill="#ff5a5f" font-size="13" font-weight="700">03 · RETURN</text>
+        <text x="24" y="74" fill="#fff" font-size="24" font-weight="800">반납</text>
+        <text x="24" y="104" fill="#a1a1aa" font-size="14.5">다시 부스에서 찍고, 새 흠집만</text>
+        <text x="24" y="124" fill="#a1a1aa" font-size="14.5">관리자가 확정 → 등급 A~D</text></g>
+    </g>
+
+    <!-- 해시 체인 -->
+    <g transform="translate(48 280)">
+      <path class="flow" d="M200 40 H 296 M496 40 H 592 M792 40 H 888" stroke="#c8161d" stroke-width="2.5" fill="none"/>
+      <g class="blk"><rect width="200" height="80" rx="12" fill="#121216" stroke="#3a3a42"/>
+        <text x="18" y="32" fill="#e4e4e7" font-size="14" font-weight="700">기록 #1 · 출고</text>
+        <text x="18" y="58" fill="#71717a" font-size="12.5" font-family="ui-monospace,Menlo,Consolas,monospace">prev 0000…  hash 9f3a…</text></g>
+      <g class="blk" style="animation-delay:2s" transform="translate(296 0)"><rect width="200" height="80" rx="12" fill="#121216" stroke="#3a3a42"/>
+        <text x="18" y="32" fill="#e4e4e7" font-size="14" font-weight="700">기록 #2 · 수령</text>
+        <text x="18" y="58" fill="#71717a" font-size="12.5" font-family="ui-monospace,Menlo,Consolas,monospace">prev 9f3a…  hash 4c1e…</text></g>
+      <g class="blk" style="animation-delay:4s" transform="translate(592 0)"><rect width="200" height="80" rx="12" fill="#121216" stroke="#3a3a42"/>
+        <text x="18" y="32" fill="#e4e4e7" font-size="14" font-weight="700">기록 #3 · 반납</text>
+        <text x="18" y="58" fill="#71717a" font-size="12.5" font-family="ui-monospace,Menlo,Consolas,monospace">prev 4c1e…  hash b72d…</text></g>
+      <g transform="translate(888 0)">
+        <rect width="216" height="80" rx="12" fill="#c8161d"/>
+        <g class="seal"><circle cx="40" cy="40" r="20" fill="none" stroke="#fff" stroke-width="2.5"/>
+          <path d="M31 40 l6 6 l12 -13" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>
+        <text x="72" y="36" fill="#fff" font-size="15" font-weight="800">Ed25519 봉인</text>
+        <text x="72" y="58" fill="#ffd5d6" font-size="11.5">검증 페이지로 누구나 확인</text>
+      </g>
+    </g>
+  </g>
+</svg>
