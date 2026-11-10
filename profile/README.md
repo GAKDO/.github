@@ -187,6 +187,76 @@
 - 레포마다 같은 워크플로를 씁니다: `backend-ci`(서버 6개), `화면 CI`(web), `python-ci`(booth·agent·ml), `계약 검사`(contracts), `비밀값 검사`·`release`·`PR 알림`(전부).
 - 계약(OpenAPI·JSON Schema·코드 값)은 contracts가 원본입니다. 바꿔야 하면 코드보다 계약을 먼저 고칩니다.
 
+## ✦ 🧪 SonarQube 품질 게이트
+
+서버 6개 모두 push마다 `backend-ci`에서 SonarQube 분석을 돌리고, 아래 품질 게이트를 통과해야 머지합니다.
+
+| 조건 (새 코드 기준) | 기준 |
+|---|---|
+| 테스트 커버리지 | 80% 이상 |
+| 중복 코드 | 3% 이하 |
+| 새 이슈 | 0건 |
+| 보안 핫스팟 검토 | 100% |
+
+| 서버 | 게이트 | 새 코드 커버리지 |
+|---|:---:|:---:|
+| [auth_server](https://github.com/GAKDO/auth_server) | ✅ Passed | 82.6% |
+| [gateway](https://github.com/GAKDO/gateway) | ✅ Passed | 100% |
+| [capture_server](https://github.com/GAKDO/capture_server) | ✅ Passed | 88.4% |
+| [rental_server](https://github.com/GAKDO/rental_server) | ✅ Passed | 90.3% |
+| [diagnostics_server](https://github.com/GAKDO/diagnostics_server) | ✅ Passed | 85.2% |
+| [report_server](https://github.com/GAKDO/report_server) | ✅ Passed | 83.0% |
+
+<details>
+<summary><b>auth-server</b> · Quality Gate Passed · 커버리지 82.6%</summary>
+<br/>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/sonar/auth-server.png" width="100%" alt="auth-server SonarQube 대시보드: 품질 게이트 통과, 커버리지 82.6%"/>
+</p>
+</details>
+
+<details>
+<summary><b>gateway</b> · Quality Gate Passed · 커버리지 100%</summary>
+<br/>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/sonar/gateway.png" width="100%" alt="gateway SonarQube 대시보드: 품질 게이트 통과, 커버리지 100%"/>
+</p>
+</details>
+
+<details>
+<summary><b>capture-server</b> · Quality Gate Passed · 커버리지 88.4%</summary>
+<br/>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/sonar/capture-server.png" width="100%" alt="capture-server SonarQube 대시보드: 품질 게이트 통과, 커버리지 88.4%"/>
+</p>
+</details>
+
+<details>
+<summary><b>rental-server</b> · Quality Gate Passed · 커버리지 90.3%</summary>
+<br/>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/sonar/rental-server.png" width="100%" alt="rental-server SonarQube 대시보드: 품질 게이트 통과, 커버리지 90.3%"/>
+</p>
+</details>
+
+<details>
+<summary><b>diagnostics-server</b> · Quality Gate Passed · 커버리지 85.2%</summary>
+<br/>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/sonar/diagnostics-server.png" width="100%" alt="diagnostics-server SonarQube 대시보드: 품질 게이트 통과, 커버리지 85.2%"/>
+</p>
+</details>
+
+<details>
+<summary><b>report-server</b> · Quality Gate Passed · 커버리지 83.0%</summary>
+<br/>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/sonar/report-server.png" width="100%" alt="report-server SonarQube 대시보드: 품질 게이트 통과, 커버리지 83.0%"/>
+</p>
+</details>
+
+<sub>2026.11.10 기준 화면입니다.</sub>
+
 ## ✦ 🗂 ERD
 
 <p align="center">
