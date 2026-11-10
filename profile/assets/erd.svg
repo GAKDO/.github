@@ -1,0 +1,1184 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2804" height="2600" viewBox="0 0 2804 2600" role="img" aria-label="TRACE ERD (crow's foot)">
+<style>.t{font-family:Pretendard,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif}.m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}</style>
+<rect width="2804" height="2600" rx="24" fill="#0b0b0f"/>
+<g class="t">
+<text x="48" y="62" fill="#ff5a5f" font-size="16" font-weight="700" letter-spacing="2">ERD · CROW'S FOOT</text>
+<text x="48" y="100" fill="#fff" font-size="32" font-weight="800" letter-spacing="-1">서비스마다 스키마를 나눈 36개 테이블</text>
+<text x="48" y="130" fill="#a1a1aa" font-size="16">PostgreSQL · 서버끼리는 외래 키 없이 공개 ID(NanoID 21자)로만 가리킵니다 · Crowfoot 문서 v32 + Flyway 최신 마이그레이션 기준</text>
+<g transform="translate(2196 52)"><rect width="560" height="80" rx="12" fill="#121216" stroke="#2c2c33"/>
+<rect x="18" y="16" width="10" height="10" rx="2" fill="#3b82f6"/><text x="33" y="25" fill="#d4d4d8" font-size="12.5">rental</text>
+<rect x="92" y="16" width="10" height="10" rx="2" fill="#22c55e"/><text x="107" y="25" fill="#d4d4d8" font-size="12.5">auth</text>
+<rect x="166" y="16" width="10" height="10" rx="2" fill="#f59e0b"/><text x="181" y="25" fill="#d4d4d8" font-size="12.5">capture</text>
+<rect x="240" y="16" width="10" height="10" rx="2" fill="#a855f7"/><text x="255" y="25" fill="#d4d4d8" font-size="12.5">inspection</text>
+<rect x="332" y="16" width="10" height="10" rx="2" fill="#ef4444"/><text x="347" y="25" fill="#d4d4d8" font-size="12.5">diagnostics</text>
+<rect x="424" y="16" width="10" height="10" rx="2" fill="#14b8a6"/><text x="439" y="25" fill="#d4d4d8" font-size="12.5">report</text>
+<rect x="498" y="16" width="10" height="10" rx="2" fill="#ec4899"/><text x="513" y="25" fill="#d4d4d8" font-size="12.5">ml</text>
+<text x="18" y="58" fill="#a1a1aa" font-size="12.5"><tspan fill="#fbbf24" class="m" font-weight="700">PK</tspan> 기본 키   <tspan fill="#60a5fa" class="m" font-weight="700">FK</tspan> 외래 키   ┼┼ 정확히 하나   ○┼ 없거나 하나   ┼&lt; 하나 이상</text></g>
+<rect x="48" y="150" width="1336" height="725" rx="18" fill="#101014" stroke="#26262c"/>
+<text x="76" y="188" fill="#fff" font-size="20" font-weight="800">rental-server</text>
+<text x="239.6" y="188" fill="#71717a" font-size="14">렌탈·기기·시점  ·  스키마 rental</text>
+<rect x="1420" y="150" width="1336" height="725" rx="18" fill="#101014" stroke="#26262c"/>
+<text x="1448" y="188" fill="#fff" font-size="20" font-weight="800">auth-server</text>
+<text x="1589.2" y="188" fill="#71717a" font-size="14">계정·자격·QR·페어링·영수증  ·  스키마 auth</text>
+<rect x="48" y="911" width="1336" height="858" rx="18" fill="#101014" stroke="#26262c"/>
+<text x="76" y="949" fill="#fff" font-size="20" font-weight="800">capture-server</text>
+<text x="250.79999999999998" y="949" fill="#71717a" font-size="14">촬영 세트·사진 → 흠집·대조·등급  ·  스키마 capture · inspection</text>
+<rect x="1420" y="911" width="1336" height="858" rx="18" fill="#101014" stroke="#26262c"/>
+<text x="1448" y="949" fill="#fff" font-size="20" font-weight="800">diagnostics-server</text>
+<text x="1667.6" y="949" fill="#71717a" font-size="14">진단 실행·배터리·SSD·벤치마크·점검 플래그  ·  스키마 diagnostics</text>
+<rect x="48" y="1805" width="1000" height="689" rx="18" fill="#101014" stroke="#26262c"/>
+<text x="76" y="1843" fill="#fff" font-size="20" font-weight="800">report-server</text>
+<text x="239.6" y="1843" fill="#71717a" font-size="14">해시 체인·리포트·타임라인 읽기 모델  ·  스키마 report</text>
+<rect x="1084" y="1805" width="1672" height="689" rx="18" fill="#101014" stroke="#26262c"/>
+<text x="1112" y="1843" fill="#fff" font-size="20" font-weight="800">ml (집 PC)</text>
+<text x="1230.8" y="1843" fill="#71717a" font-size="14">데이터셋 버전·학습 기록  ·  스키마 ml</text>
+<path d="M348 291.5 H371.0 V310.5 H412" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M355 285.5 v12 M359 285.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M400 310.5 L412 304.5 M400 310.5 L412 316.5 M397 304.5 v12" stroke="#d4d4d8" stroke-width="1.6" fill="none"/>
+<path d="M684 291.5 H707.0 V310.5 H748" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M691 285.5 v12 M695 285.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M736 310.5 L748 304.5 M736 310.5 L748 316.5 M733 304.5 v12" stroke="#d4d4d8" stroke-width="1.6" fill="none"/>
+<path d="M1020 291.5 H1043.0 V310.5 H1084" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M1027 285.5 v12 M1031 285.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M1072 310.5 L1084 304.5 M1072 310.5 L1084 316.5 M1069 304.5 v12" stroke="#d4d4d8" stroke-width="1.6" fill="none"/>
+<path d="M412 291.5 H398 V612.5 H412" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M405 285.5 v12 M401 285.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M400 612.5 L412 606.5 M400 612.5 L412 618.5 M397 606.5 v12" stroke="#d4d4d8" stroke-width="1.6" fill="none"/>
+<path d="M348 1052.5 H380.0 V1071.5 H412" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M355 1046.5 v12 M359 1046.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M400 1071.5 L412 1065.5 M400 1071.5 L412 1077.5 M397 1065.5 v12" stroke="#d4d4d8" stroke-width="1.6" fill="none"/>
+<path d="M684 1052.5 H716.0 V1468.5 H748" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M691 1046.5 v12 M695 1046.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M741 1462.5 v12 M737 1462.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M684 1052.5 H725.0 V1071.5 H748" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M691 1046.5 v12 M695 1046.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M736 1071.5 L748 1065.5 M736 1071.5 L748 1077.5 M733 1065.5 v12" stroke="#d4d4d8" stroke-width="1.6" fill="none"/>
+<path d="M1020 1052.5 H1052.0 V1090.5 H1084" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M1027 1046.5 v12 M1031 1046.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M1077 1084.5 v12 M1073 1084.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M1020 1052.5 H1061.0 V1071.5 H1084" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M1026 1046.5 v12" stroke="#d4d4d8" stroke-width="1.6"/><circle cx="1034" cy="1052.5" r="3.5" fill="#101014" stroke="#d4d4d8" stroke-width="1.5"/>
+<path d="M1072 1071.5 L1084 1065.5 M1072 1071.5 L1084 1077.5 M1069 1065.5 v12" stroke="#d4d4d8" stroke-width="1.6" fill="none"/>
+<path d="M2056 1052.5 H2079.0 V1071.5 H2120" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M2063 1046.5 v12 M2067 1046.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M2108 1071.5 L2120 1065.5 M2108 1071.5 L2120 1077.5 M2105 1065.5 v12" stroke="#d4d4d8" stroke-width="1.6" fill="none"/>
+<path d="M1784 1052.5 H1743.0 V1071.5 H1720" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M1777 1046.5 v12 M1773 1046.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M1727 1065.5 v12 M1731 1065.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M1784 1052.5 H1752.0 V1392.5 H1720" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M1777 1046.5 v12 M1773 1046.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M1727 1386.5 v12 M1731 1386.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M2056 1052.5 H2088.0 V1278.5 H2120" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M2063 1046.5 v12 M2067 1046.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M2108 1278.5 L2120 1272.5 M2108 1278.5 L2120 1284.5 M2105 1272.5 v12" stroke="#d4d4d8" stroke-width="1.6" fill="none"/>
+<path d="M2056 1052.5 H2097.0 V1504.5 H2120" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M2063 1046.5 v12 M2067 1046.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M2108 1504.5 L2120 1498.5 M2108 1504.5 L2120 1510.5 M2105 1498.5 v12" stroke="#d4d4d8" stroke-width="1.6" fill="none"/>
+<path d="M2056 1052.5 H2079.0 V1485.5 H2120" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M2063 1046.5 v12 M2067 1046.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M2108 1485.5 L2120 1479.5 M2108 1485.5 L2120 1491.5 M2105 1479.5 v12" stroke="#d4d4d8" stroke-width="1.6" fill="none"/>
+<path d="M1384 1946.5 H1407.0 V1965.5 H1448" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M1391 1940.5 v12 M1395 1940.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M1436 1965.5 L1448 1959.5 M1436 1965.5 L1448 1971.5 M1433 1959.5 v12" stroke="#d4d4d8" stroke-width="1.6" fill="none"/>
+<path d="M1720 291.5 H1743.0 V310.5 H1784" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M1727 285.5 v12 M1731 285.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M1772 310.5 L1784 304.5 M1772 310.5 L1784 316.5 M1769 304.5 v12" stroke="#d4d4d8" stroke-width="1.6" fill="none"/>
+<path d="M1720 291.5 H1752.0 V498.5 H1784" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M1727 285.5 v12 M1731 285.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M1772 498.5 L1784 492.5 M1772 498.5 L1784 504.5 M1769 492.5 v12" stroke="#d4d4d8" stroke-width="1.6" fill="none"/>
+<path d="M348 1052.5 H389.0 V1430.5 H412" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M354 1046.5 v12" stroke="#d4d4d8" stroke-width="1.6"/><circle cx="362" cy="1052.5" r="3.5" fill="#101014" stroke="#d4d4d8" stroke-width="1.5"/>
+<path d="M400 1430.5 L412 1424.5 M400 1430.5 L412 1436.5 M397 1424.5 v12" stroke="#d4d4d8" stroke-width="1.6" fill="none"/>
+<path d="M348 1052.5 H371.0 V1675.5 H412" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M355 1046.5 v12 M359 1046.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M400 1675.5 L412 1669.5 M400 1675.5 L412 1681.5 M397 1669.5 v12" stroke="#d4d4d8" stroke-width="1.6" fill="none"/>
+<path d="M1020 291.5 H1043.0 V574.5 H1084" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M1027 285.5 v12 M1031 285.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M1072 574.5 L1084 568.5 M1072 574.5 L1084 580.5 M1069 568.5 v12" stroke="#d4d4d8" stroke-width="1.6" fill="none"/>
+<path d="M1084 291.5 H1070 V593.5 H1084" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M1077 285.5 v12 M1073 285.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M1072 593.5 L1084 587.5 M1072 593.5 L1084 599.5 M1069 587.5 v12" stroke="#d4d4d8" stroke-width="1.6" fill="none"/>
+<path d="M1720 291.5 H1761.0 V743.5 H1784" fill="none" stroke="#52525b" stroke-width="1.6"/>
+<path d="M1727 285.5 v12 M1731 285.5 v12" stroke="#d4d4d8" stroke-width="1.6"/>
+<path d="M1772 743.5 L1784 737.5 M1772 743.5 L1784 749.5 M1769 737.5 v12" stroke="#d4d4d8" stroke-width="1.6" fill="none"/>
+<g transform="translate(76 242)"><rect width="272" height="295" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#3b82f6" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#3b82f6"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">device_model</text><text x="14" y="33" fill="#3b82f6" font-size="11.5" font-weight="600">기종 · rental</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#d4d4d8" font-size="11.5" class="m">model_code</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(64) ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">name</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(128) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">manufacturer</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(64)</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">form_factor</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(16) ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">spec</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">width_mm</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">decimal ·nn</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">depth_mm</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">decimal ·nn</text>
+<rect x="1" y="192" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="205.5" fill="#d4d4d8" font-size="11.5" class="m">base_h_mm</text>
+<text x="262" y="205.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">decimal ·nn</text>
+<text x="12" y="224.5" fill="#d4d4d8" font-size="11.5" class="m">lid_h_mm</text>
+<text x="262" y="224.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">decimal ·nn</text>
+<rect x="1" y="230" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="243.5" fill="#d4d4d8" font-size="11.5" class="m">updated_by</text>
+<text x="262" y="243.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21)</text>
+<text x="12" y="262.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="262.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="268" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="281.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="281.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+</g>
+<g transform="translate(412 242)"><rect width="272" height="276" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#3b82f6" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#3b82f6"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">device</text><text x="14" y="33" fill="#3b82f6" font-size="11.5" font-weight="600">기기 · rental</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>device_model_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">serial</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(64) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">os</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(8) ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">color</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(32)</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">asset_no</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(64)</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">status</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(16) ·nn</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">retired_at</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz</text>
+<rect x="1" y="192" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="205.5" fill="#d4d4d8" font-size="11.5" class="m">updated_by</text>
+<text x="262" y="205.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21)</text>
+<text x="12" y="224.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="224.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="230" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="243.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="243.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="262.5" fill="#d4d4d8" font-size="11.5" class="m">public_id</text>
+<text x="262" y="262.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+</g>
+<g transform="translate(412 544)"><rect width="272" height="181" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#3b82f6" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#3b82f6"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">pilot_participant</text><text x="14" y="33" fill="#3b82f6" font-size="11.5" font-weight="600">파일럿 참여자 · rental</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>device_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">alias</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(16) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">consent_at</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">public_id</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+</g>
+<g transform="translate(748 242)"><rect width="272" height="276" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#3b82f6" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#3b82f6"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">rental</text><text x="14" y="33" fill="#3b82f6" font-size="11.5" font-weight="600">렌탈 · rental</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>device_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">renter_ref</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(128) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">status</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(16) ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">started_at</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">ended_at</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="192" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="205.5" fill="#d4d4d8" font-size="11.5" class="m">public_id</text>
+<text x="262" y="205.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<text x="12" y="224.5" fill="#d4d4d8" font-size="11.5" class="m">customer_name</text>
+<text x="262" y="224.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(64)</text>
+<rect x="1" y="230" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="243.5" fill="#d4d4d8" font-size="11.5" class="m">due_at</text>
+<text x="262" y="243.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">date</text>
+<text x="12" y="262.5" fill="#d4d4d8" font-size="11.5" class="m">note</text>
+<text x="262" y="262.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(500)</text>
+</g>
+<g transform="translate(1084 242)"><rect width="272" height="219" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#3b82f6" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#3b82f6"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">checkpoint</text><text x="14" y="33" fill="#3b82f6" font-size="11.5" font-weight="600">시점 · rental</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>rental_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">status</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(16) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">occurred_at</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">public_id</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">type</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(3) ·nn</text>
+<rect x="1" y="192" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="205.5" fill="#d4d4d8" font-size="11.5" class="m">grade</text>
+<text x="262" y="205.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(1)</text>
+</g>
+<g transform="translate(1084 487)"><rect width="272" height="181" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#3b82f6" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#3b82f6"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">booth_code</text><text x="14" y="33" fill="#3b82f6" font-size="11.5" font-weight="600">부스 6자리 코드 · rental</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#d4d4d8" font-size="11.5" class="m">code_hash</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(64) ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>rental_id</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="110.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>checkpoint_id</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">expires_at</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">used_at</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+</g>
+<g transform="translate(1448 242)"><rect width="272" height="276" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#22c55e" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#22c55e"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">account</text><text x="14" y="33" fill="#22c55e" font-size="11.5" font-weight="600">계정 · auth</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#d4d4d8" font-size="11.5" class="m">email</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(254)</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">password_hash</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(100)</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">name</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(64)</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">role</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(16) ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">status</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(16) ·nn</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">email_verified_at</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">privacy_agreed_at</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz</text>
+<rect x="1" y="192" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="205.5" fill="#d4d4d8" font-size="11.5" class="m">withdrawn_at</text>
+<text x="262" y="205.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz</text>
+<text x="12" y="224.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="224.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="230" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="243.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="243.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="262.5" fill="#d4d4d8" font-size="11.5" class="m">public_id</text>
+<text x="262" y="262.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+</g>
+<g transform="translate(1784 242)"><rect width="272" height="162" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#22c55e" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#22c55e"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">rental_access</text><text x="14" y="33" fill="#22c55e" font-size="11.5" font-weight="600">렌탈 연결 · auth</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>account_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">rental_id</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">linked_at</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+</g>
+<g transform="translate(1784 430)"><rect width="272" height="219" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#22c55e" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#22c55e"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">email_token</text><text x="14" y="33" fill="#22c55e" font-size="11.5" font-weight="600">메일 코드 · auth</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>account_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">purpose</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(8) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">code_hash</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">char(64) ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">attempts</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">smallint ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">expires_at</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">used_at</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="192" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="205.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="205.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+</g>
+<g transform="translate(1784 675)"><rect width="272" height="200" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#22c55e" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#22c55e"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">social_identity</text><text x="14" y="33" fill="#22c55e" font-size="11.5" font-weight="600">소셜 로그인 연결 · auth</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>account_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">provider</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(16) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">subject</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(128) ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">email</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(254)</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">linked_at</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+</g>
+<g transform="translate(2120 242)"><rect width="272" height="181" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#22c55e" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#22c55e"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">client_credential</text><text x="14" y="33" fill="#22c55e" font-size="11.5" font-weight="600">부스 자격 · auth</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#d4d4d8" font-size="11.5" class="m">client_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(64) ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">secret_hash</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(100) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">kind</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(16) ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">active</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">boolean ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+</g>
+<g transform="translate(2120 449)"><rect width="272" height="219" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#22c55e" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#22c55e"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">seal_receipt</text><text x="14" y="33" fill="#22c55e" font-size="11.5" font-weight="600">봉인 영수증 · auth</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#d4d4d8" font-size="11.5" class="m">rental_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">checkpoint_id</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">checkpoint_type</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(3) ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">payload_hash</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">char(64) ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">sealed_at</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">sent_at</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="192" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="205.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="205.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+</g>
+<g transform="translate(2456 242)"><rect width="272" height="200" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#22c55e" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#22c55e"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">capture_link</text><text x="14" y="33" fill="#22c55e" font-size="11.5" font-weight="600">수령 촬영 링크 · auth</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#d4d4d8" font-size="11.5" class="m">checkpoint_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">rental_id</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">token_hash</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">char(64) ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">expires_at</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">used_at</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+</g>
+<g transform="translate(2456 468)"><rect width="272" height="219" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#22c55e" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#22c55e"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">pairing_code</text><text x="14" y="33" fill="#22c55e" font-size="11.5" font-weight="600">페어링 코드 · auth</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#d4d4d8" font-size="11.5" class="m">checkpoint_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">code_hash</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">char(64) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">expires_at</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">used_at</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">rental_id</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21)</text>
+<rect x="1" y="192" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="205.5" fill="#d4d4d8" font-size="11.5" class="m">device_serial</text>
+<text x="262" y="205.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(64)</text>
+</g>
+<g transform="translate(76 1003)"><rect width="272" height="504" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#f59e0b" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#f59e0b"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">capture_set</text><text x="14" y="33" fill="#f59e0b" font-size="11.5" font-weight="600">촬영 세트 · capture</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#d4d4d8" font-size="11.5" class="m">checkpoint_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">source</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(8) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">booth_id</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(32)</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">status</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(16) ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">quality</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(16) ·nn</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="192" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="205.5" fill="#d4d4d8" font-size="11.5" class="m">skipped_faces</text>
+<text x="262" y="205.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb ·nn</text>
+<text x="12" y="224.5" fill="#d4d4d8" font-size="11.5" class="m">public_id</text>
+<text x="262" y="224.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<rect x="1" y="230" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="243.5" fill="#d4d4d8" font-size="11.5" class="m">rental_id</text>
+<text x="262" y="243.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<text x="12" y="262.5" fill="#d4d4d8" font-size="11.5" class="m">completion_key</text>
+<text x="262" y="262.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(128)</text>
+<rect x="1" y="268" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="281.5" fill="#d4d4d8" font-size="11.5" class="m">completion_request_sha256</text>
+<text x="262" y="281.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">char(64)</text>
+<text x="12" y="300.5" fill="#d4d4d8" font-size="11.5" class="m">completion_response</text>
+<text x="262" y="300.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb</text>
+<rect x="1" y="306" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="319.5" fill="#d4d4d8" font-size="11.5" class="m">detections_received_at</text>
+<text x="262" y="319.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz</text>
+<text x="12" y="338.5" fill="#d4d4d8" font-size="11.5" class="m">device</text>
+<text x="262" y="338.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb</text>
+<rect x="1" y="344" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="357.5" fill="#d4d4d8" font-size="11.5" class="m">profile</text>
+<text x="262" y="357.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(8) ·nn</text>
+<text x="12" y="376.5" fill="#d4d4d8" font-size="11.5" class="m">completed_at</text>
+<text x="262" y="376.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz</text>
+<rect x="1" y="382" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="395.5" fill="#d4d4d8" font-size="11.5" class="m">detection_model_version</text>
+<text x="262" y="395.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(64)</text>
+<text x="12" y="414.5" fill="#d4d4d8" font-size="11.5" class="m">inference_ms</text>
+<text x="262" y="414.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">integer</text>
+<rect x="1" y="420" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="433.5" fill="#d4d4d8" font-size="11.5" class="m">booth_total_ms</text>
+<text x="262" y="433.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">integer</text>
+<text x="12" y="452.5" fill="#d4d4d8" font-size="11.5" class="m">review_completed_at</text>
+<text x="262" y="452.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz</text>
+<rect x="1" y="458" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="471.5" fill="#d4d4d8" font-size="11.5" class="m">review_completed_by</text>
+<text x="262" y="471.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(64)</text>
+<text x="12" y="490.5" fill="#d4d4d8" font-size="11.5" class="m">review_completion_key</text>
+<text x="262" y="490.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(128)</text>
+</g>
+<g transform="translate(412 1003)"><rect width="272" height="333" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#f59e0b" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#f59e0b"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">photo</text><text x="14" y="33" fill="#f59e0b" font-size="11.5" font-weight="600">사진 · capture</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>capture_set_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">object_key</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(512) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">sha256</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">char(64) ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">blur_score</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">float</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">quality_ok</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">boolean ·nn</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">taken_at</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="192" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="205.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="205.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="224.5" fill="#d4d4d8" font-size="11.5" class="m">public_id</text>
+<text x="262" y="224.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<rect x="1" y="230" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="243.5" fill="#d4d4d8" font-size="11.5" class="m">uploaded</text>
+<text x="262" y="243.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">boolean ·nn</text>
+<text x="12" y="262.5" fill="#d4d4d8" font-size="11.5" class="m">face</text>
+<text x="262" y="262.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(4) ·nn</text>
+<rect x="1" y="268" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="281.5" fill="#d4d4d8" font-size="11.5" class="m">light</text>
+<text x="262" y="281.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(4) ·nn</text>
+<text x="12" y="300.5" fill="#d4d4d8" font-size="11.5" class="m">camera</text>
+<text x="262" y="300.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(8) ·nn</text>
+<rect x="1" y="306" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="319.5" fill="#d4d4d8" font-size="11.5" class="m">align_failure</text>
+<text x="262" y="319.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(500)</text>
+</g>
+<g transform="translate(412 1362)"><rect width="272" height="219" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#a855f7" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#a855f7"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">grade_result</text><text x="14" y="33" fill="#a855f7" font-size="11.5" font-weight="600">등급 결과 · inspection</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>capture_set_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">checkpoint_id</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">grade</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">char(1) ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">rule_version</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(32) ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">reasons</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb ·nn</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="192" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="205.5" fill="#d4d4d8" font-size="11.5" class="m">unjudgeable_faces</text>
+<text x="262" y="205.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb ·nn</text>
+</g>
+<g transform="translate(412 1607)"><rect width="272" height="162" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#a855f7" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#a855f7"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">face_texture</text><text x="14" y="33" fill="#a855f7" font-size="11.5" font-weight="600">면 텍스처 · inspection</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>capture_set_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">face</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(4) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">object_key</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(512) ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+</g>
+<g transform="translate(748 1003)"><rect width="272" height="371" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#a855f7" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#a855f7"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">defect</text><text x="14" y="33" fill="#a855f7" font-size="11.5" font-weight="600">흠집 · inspection</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>photo_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">class</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(8) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">polygon</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">length_mm</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">float</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">area_mm2</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">float</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">confidence</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">float ·nn</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">model_version</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(64) ·nn</text>
+<rect x="1" y="192" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="205.5" fill="#d4d4d8" font-size="11.5" class="m">source</text>
+<text x="262" y="205.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(8) ·nn</text>
+<text x="12" y="224.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="224.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="230" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="243.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="243.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="262.5" fill="#d4d4d8" font-size="11.5" class="m">public_id</text>
+<text x="262" y="262.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<rect x="1" y="268" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="281.5" fill="#d4d4d8" font-size="11.5" class="m">photo_polygon</text>
+<text x="262" y="281.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb ·nn</text>
+<text x="12" y="300.5" fill="#d4d4d8" font-size="11.5" class="m">review_status</text>
+<text x="262" y="300.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(10) ·nn</text>
+<rect x="1" y="306" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="319.5" fill="#d4d4d8" font-size="11.5" class="m">dismiss_reason</text>
+<text x="262" y="319.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(12)</text>
+<text x="12" y="338.5" fill="#d4d4d8" font-size="11.5" class="m">reviewed_by</text>
+<text x="262" y="338.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(64)</text>
+<rect x="1" y="344" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="357.5" fill="#d4d4d8" font-size="11.5" class="m">reviewed_at</text>
+<text x="262" y="357.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz</text>
+</g>
+<g transform="translate(748 1400)"><rect width="272" height="200" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#a855f7" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#a855f7"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">face_alignment</text><text x="14" y="33" fill="#a855f7" font-size="11.5" font-weight="600">면 정합 · inspection</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>photo_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">method</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(16) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">homography</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">error_px</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">float</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">rectified_key</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(512) ·nn</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+</g>
+<g transform="translate(1084 1003)"><rect width="272" height="200" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#a855f7" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#a855f7"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">defect_match</text><text x="14" y="33" fill="#a855f7" font-size="11.5" font-weight="600">흠집 대조 · inspection</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>prev_defect_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>defect_id</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">status</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(8) ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">distance_mm</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">float</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">rule_version</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(32) ·nn</text>
+</g>
+<g transform="translate(1448 1003)"><rect width="272" height="295" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#ef4444" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#ef4444"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">battery_reading</text><text x="14" y="33" fill="#ef4444" font-size="11.5" font-weight="600">배터리 측정 · diagnostics</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>run_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">cycle_count</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">int</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">design_capacity</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">int</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">full_charge_capacity</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">int</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">capacity_unit</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(3)</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">max_capacity_pct</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">decimal</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">os_max_capacity_pct</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">smallint</text>
+<rect x="1" y="192" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="205.5" fill="#d4d4d8" font-size="11.5" class="m">condition</text>
+<text x="262" y="205.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(32)</text>
+<text x="12" y="224.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="224.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="230" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="243.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="243.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="262.5" fill="#d4d4d8" font-size="11.5" class="m">status</text>
+<text x="262" y="262.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(12) ·nn</text>
+<rect x="1" y="268" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="281.5" fill="#d4d4d8" font-size="11.5" class="m">skipped_reason</text>
+<text x="262" y="281.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(16)</text>
+</g>
+<g transform="translate(1448 1324)"><rect width="272" height="276" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#ef4444" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#ef4444"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">ssd_health</text><text x="14" y="33" fill="#ef4444" font-size="11.5" font-weight="600">SSD 상태 · diagnostics</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>run_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">percent_used</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">smallint</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">available_spare_pct</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">smallint</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">critical_warning</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">smallint</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">power_on_hours</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">int</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">media_errors</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">int</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">skipped_reason</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(128)</text>
+<rect x="1" y="192" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="205.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="205.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="224.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="224.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="230" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="243.5" fill="#d4d4d8" font-size="11.5" class="m">status</text>
+<text x="262" y="243.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(8) ·nn</text>
+<text x="12" y="262.5" fill="#d4d4d8" font-size="11.5" class="m">protocol</text>
+<text x="262" y="262.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(8)</text>
+</g>
+<g transform="translate(1784 1003)"><rect width="272" height="390" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#ef4444" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#ef4444"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">diagnostic_run</text><text x="14" y="33" fill="#ef4444" font-size="11.5" font-weight="600">진단 실행 · diagnostics</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#d4d4d8" font-size="11.5" class="m">checkpoint_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">device_serial</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(64) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">os</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(8) ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">agent_version</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(32) ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">conditions</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb ·nn</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">raw_object_key</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(512)</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">sha256</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">char(64) ·nn</text>
+<rect x="1" y="192" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="205.5" fill="#d4d4d8" font-size="11.5" class="m">consented_at</text>
+<text x="262" y="205.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="224.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="224.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="230" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="243.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="243.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="262.5" fill="#d4d4d8" font-size="11.5" class="m">public_id</text>
+<text x="262" y="262.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<rect x="1" y="268" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="281.5" fill="#d4d4d8" font-size="11.5" class="m">rental_id</text>
+<text x="262" y="281.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<text x="12" y="300.5" fill="#d4d4d8" font-size="11.5" class="m">collected_at</text>
+<text x="262" y="300.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="306" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="319.5" fill="#d4d4d8" font-size="11.5" class="m">raw_body</text>
+<text x="262" y="319.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">text ·nn</text>
+<text x="12" y="338.5" fill="#d4d4d8" font-size="11.5" class="m">idempotency_key</text>
+<text x="262" y="338.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(128) ·nn</text>
+<rect x="1" y="344" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="357.5" fill="#d4d4d8" font-size="11.5" class="m">benchmark_skipped_reason</text>
+<text x="262" y="357.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(16)</text>
+<text x="12" y="376.5" fill="#d4d4d8" font-size="11.5" class="m">checks</text>
+<text x="262" y="376.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb</text>
+</g>
+<g transform="translate(2120 1003)"><rect width="272" height="181" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#ef4444" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#ef4444"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">hardware_component</text><text x="14" y="33" fill="#ef4444" font-size="11.5" font-weight="600">부품 · diagnostics</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>run_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">kind</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(16) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">identifier</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(128) ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">detail</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+</g>
+<g transform="translate(2120 1210)"><rect width="272" height="181" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#ef4444" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#ef4444"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">benchmark_result</text><text x="14" y="33" fill="#ef4444" font-size="11.5" font-weight="600">벤치마크 결과 · diagnostics</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>run_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">trial_values</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">median</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">double ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">metric</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(16) ·nn</text>
+</g>
+<g transform="translate(2120 1417)"><rect width="272" height="200" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#ef4444" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#ef4444"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">inspection_flag</text><text x="14" y="33" fill="#ef4444" font-size="11.5" font-weight="600">점검 플래그 · diagnostics</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>base_run_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>run_id</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">checkpoint_id</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">kind</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(24) ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">detail</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb ·nn</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+</g>
+<g transform="translate(76 1897)"><rect width="272" height="333" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#14b8a6" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#14b8a6"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">record_chain</text><text x="14" y="33" fill="#14b8a6" font-size="11.5" font-weight="600">해시 체인 · report</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#d4d4d8" font-size="11.5" class="m">rental_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">checkpoint_id</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">seq</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">int ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">payload_hash</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">char(64) ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">prev_hash</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">char(64)</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">signature</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">text ·nn</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">signed_at</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="192" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="205.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="205.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="224.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="224.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="230" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="243.5" fill="#d4d4d8" font-size="11.5" class="m">checkpoint_type</text>
+<text x="262" y="243.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(3) ·nn</text>
+<text x="12" y="262.5" fill="#d4d4d8" font-size="11.5" class="m">grade</text>
+<text x="262" y="262.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">char(1) ·nn</text>
+<rect x="1" y="268" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="281.5" fill="#d4d4d8" font-size="11.5" class="m">payload</text>
+<text x="262" y="281.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb ·nn</text>
+<text x="12" y="300.5" fill="#d4d4d8" font-size="11.5" class="m">record_hash</text>
+<text x="262" y="300.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">char(64) ·nn</text>
+<rect x="1" y="306" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="319.5" fill="#d4d4d8" font-size="11.5" class="m">manual</text>
+<text x="262" y="319.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">boolean ·nn</text>
+</g>
+<g transform="translate(76 2256)"><rect width="272" height="238" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#14b8a6" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#14b8a6"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">manual_seal_log</text><text x="14" y="33" fill="#14b8a6" font-size="11.5" font-weight="600">수동 봉인 기록 · report</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#d4d4d8" font-size="11.5" class="m">rental_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">checkpoint_id</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">checkpoint_type</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(3) ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">grade</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">char(1) ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">seq</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">int ·nn</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">reason</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(300) ·nn</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">sealed_by</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(64) ·nn</text>
+<rect x="1" y="192" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="205.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="205.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="224.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="224.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+</g>
+<g transform="translate(412 1897)"><rect width="272" height="219" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#14b8a6" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#14b8a6"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">report</text><text x="14" y="33" fill="#14b8a6" font-size="11.5" font-weight="600">리포트 · report</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#d4d4d8" font-size="11.5" class="m">rental_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">verify_token</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">char(32) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">device_id</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21)</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">serial</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(64)</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">model_code</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(64)</text>
+<rect x="1" y="192" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="205.5" fill="#d4d4d8" font-size="11.5" class="m">model_name</text>
+<text x="262" y="205.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(128)</text>
+</g>
+<g transform="translate(412 2142)"><rect width="272" height="143" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#14b8a6" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#14b8a6"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">report_view</text><text x="14" y="33" fill="#14b8a6" font-size="11.5" font-weight="600">타임라인 읽기 모델 · report</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#d4d4d8" font-size="11.5" class="m">rental_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">timeline</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+</g>
+<g transform="translate(412 2311)"><rect width="272" height="143" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#14b8a6" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#14b8a6"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">processed_event</text><text x="14" y="33" fill="#14b8a6" font-size="11.5" font-weight="600">처리한 이벤트 · report</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#d4d4d8" font-size="11.5" class="m">event_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">routing_key</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(64) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+</g>
+<g transform="translate(748 1897)"><rect width="272" height="485" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#14b8a6" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#14b8a6"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">checkpoint_view</text><text x="14" y="33" fill="#14b8a6" font-size="11.5" font-weight="600">시점 읽기 모델 · report</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#d4d4d8" font-size="11.5" class="m">rental_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">checkpoint_id</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">checkpoint_type</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(3)</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">status</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(8) ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">occurred_at</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">capture_set_id</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21)</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">photos</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb ·nn</text>
+<rect x="1" y="192" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="205.5" fill="#d4d4d8" font-size="11.5" class="m">chain_photos</text>
+<text x="262" y="205.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb ·nn</text>
+<text x="12" y="224.5" fill="#d4d4d8" font-size="11.5" class="m">grade</text>
+<text x="262" y="224.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">char(1)</text>
+<rect x="1" y="230" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="243.5" fill="#d4d4d8" font-size="11.5" class="m">rule_version</text>
+<text x="262" y="243.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(32)</text>
+<text x="12" y="262.5" fill="#d4d4d8" font-size="11.5" class="m">new_defect_ids</text>
+<text x="262" y="262.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb ·nn</text>
+<rect x="1" y="268" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="281.5" fill="#d4d4d8" font-size="11.5" class="m">unjudgeable_faces</text>
+<text x="262" y="281.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb ·nn</text>
+<text x="12" y="300.5" fill="#d4d4d8" font-size="11.5" class="m">graded_at</text>
+<text x="262" y="300.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz</text>
+<rect x="1" y="306" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="319.5" fill="#d4d4d8" font-size="11.5" class="m">inspected_at</text>
+<text x="262" y="319.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz</text>
+<text x="12" y="338.5" fill="#d4d4d8" font-size="11.5" class="m">diag_run_id</text>
+<text x="262" y="338.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(21)</text>
+<rect x="1" y="344" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="357.5" fill="#d4d4d8" font-size="11.5" class="m">diag_sha256</text>
+<text x="262" y="357.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">char(64)</text>
+<text x="12" y="376.5" fill="#d4d4d8" font-size="11.5" class="m">diag_flags</text>
+<text x="262" y="376.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb ·nn</text>
+<rect x="1" y="382" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="395.5" fill="#d4d4d8" font-size="11.5" class="m">diag_max_capacity_pct</text>
+<text x="262" y="395.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">double</text>
+<text x="12" y="414.5" fill="#d4d4d8" font-size="11.5" class="m">pins</text>
+<text x="262" y="414.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb ·nn</text>
+<rect x="1" y="420" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="433.5" fill="#d4d4d8" font-size="11.5" class="m">sealed_at</text>
+<text x="262" y="433.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz</text>
+<text x="12" y="452.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="452.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="458" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="471.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="471.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+</g>
+<g transform="translate(1112 1897)"><rect width="272" height="200" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#ec4899" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#ec4899"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">dataset_version</text><text x="14" y="33" fill="#ec4899" font-size="11.5" font-weight="600">데이터셋 버전 · ml</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#d4d4d8" font-size="11.5" class="m">version</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(8) ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">manifest_key</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(512) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">builder_commit</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(40) ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">counts</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">built_at</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+</g>
+<g transform="translate(1112 2123)"><rect width="272" height="181" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#ec4899" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#ec4899"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">dataset_device</text><text x="14" y="33" fill="#ec4899" font-size="11.5" font-weight="600">데이터셋 기기 · ml</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#d4d4d8" font-size="11.5" class="m">device_code</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(8) ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">model_name</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(128) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">color</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(32)</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">split</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(8) ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+</g>
+<g transform="translate(1448 1897)"><rect width="272" height="200" rx="10" fill="#17171c" stroke="#2f2f37"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h252 a10 10 0 0 1 10 10 v30 h-272 z" fill="#ec4899" fill-opacity=".16"/><rect width="4" height="40" rx="2" fill="#ec4899"/>
+<text x="14" y="18" fill="#fff" font-size="13.5" font-weight="800" class="m">training_run</text><text x="14" y="33" fill="#ec4899" font-size="11.5" font-weight="600">학습 실행 · ml</text>
+<rect x="1" y="40" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="53.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#fbbf24" font-weight="700">PK </tspan>id</text>
+<text x="262" y="53.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<text x="12" y="72.5" fill="#fff" font-size="11.5" class="m"><tspan fill="#60a5fa" font-weight="700">FK </tspan>dataset_version_id</text>
+<text x="262" y="72.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">bigint ·nn</text>
+<rect x="1" y="78" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="91.5" fill="#d4d4d8" font-size="11.5" class="m">base_weights</text>
+<text x="262" y="91.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(128) ·nn</text>
+<text x="12" y="110.5" fill="#d4d4d8" font-size="11.5" class="m">metrics</text>
+<text x="262" y="110.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">jsonb ·nn</text>
+<rect x="1" y="116" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="129.5" fill="#d4d4d8" font-size="11.5" class="m">model_key</text>
+<text x="262" y="129.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(512) ·nn</text>
+<text x="12" y="148.5" fill="#d4d4d8" font-size="11.5" class="m">onnx_key</text>
+<text x="262" y="148.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">varchar(512) ·nn</text>
+<rect x="1" y="154" width="270" height="19" fill="#1c1c22"/>
+<text x="12" y="167.5" fill="#d4d4d8" font-size="11.5" class="m">created_at</text>
+<text x="262" y="167.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+<text x="12" y="186.5" fill="#d4d4d8" font-size="11.5" class="m">updated_at</text>
+<text x="262" y="186.5" fill="#71717a" font-size="10.5" class="m" text-anchor="end">timestamptz ·nn</text>
+</g>
+<text x="48" y="2570" fill="#71717a" font-size="13">원본: Crowfoot "TRACE MVP ERD"(문서 688) · 각 서버 레포 src/main/resources/db/migration · ml V1__ml.sql   ·   ·nn = NOT NULL</text>
+</g></svg>

@@ -180,101 +180,22 @@
 
 ## ✦ 🔁 CI/CD
 
-```mermaid
-flowchart LR
-  dev["기능 브랜치<br/>Spec Kit 명세·계획·작업"] --> pr["PR → develop"]
-  pr --> ci["CI<br/>Maven verify · JaCoCo 40%<br/>타입 검사 · Vitest<br/>ruff · pytest · 계약 검사"]
-  pr --> review["CodeRabbit 한국어 리뷰<br/>SonarQube · gitleaks"]
-  ci --> merge["머지"]
-  review --> merge
-  merge --> image["이미지 빌드<br/>GHCR"]
-  image --> deploy["학교 서버<br/>Docker Compose pull · up"]
-  merge --> notify["Discord 알림 · 릴리스 노트"]
-```
+<p align="center">
+  <img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/cicd.svg" width="100%" alt="TRACE CI/CD 파이프라인: 기능 브랜치 → PR → 자동 검사·리뷰 → 머지 → 학교 서버 배포 → 알림"/>
+</p>
 
 - 레포마다 같은 워크플로를 씁니다: `backend-ci`(서버 6개), `화면 CI`(web), `python-ci`(booth·agent·ml), `계약 검사`(contracts), `비밀값 검사`·`release`·`PR 알림`(전부).
 - 계약(OpenAPI·JSON Schema·코드 값)은 contracts가 원본입니다. 바꿔야 하면 코드보다 계약을 먼저 고칩니다.
 
 ## ✦ 🗂 ERD
 
-<details>
-<summary><b>핵심 테이블 보기</b> (전체 34개 중 흐름에 필요한 것만)</summary>
+<p align="center">
+  <a href="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/erd.svg"><img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/erd.svg" width="100%" alt="TRACE ERD: 서버별 스키마 7개, 테이블 36개, crow's foot 표기"/></a>
+</p>
 
-```mermaid
-erDiagram
-  DEVICE_MODEL ||--o{ DEVICE : "기종"
-  DEVICE ||--o{ RENTAL : "대여"
-  RENTAL ||--o{ CHECKPOINT : "출고·수령·반납"
-  CAPTURE_SET ||--o{ PHOTO : "12장"
-  PHOTO ||--o{ DEFECT : "흠집 폴리곤"
-  CAPTURE_SET ||--o| GRADE_RESULT : "등급"
-  RENTAL ||..o{ CAPTURE_SET : "공개 ID로 참조"
-  RENTAL ||..o{ RECORD_CHAIN : "공개 ID로 참조"
-  DIAGNOSTIC_RUN ||--o{ INSPECTION_FLAG : "점검 플래그"
+> 그림을 누르면 원본 크기로 열립니다. 서버마다 PostgreSQL 스키마를 나누고(rental · auth · capture · inspection · diagnostics · report · ml), 서버끼리는 외래 키 없이 공개 ID로만 가리킵니다.
 
-  DEVICE_MODEL {
-    string model_code
-    string name
-    int width_mm
-    int depth_mm
-  }
-  DEVICE {
-    string public_id
-    string serial
-    string status
-  }
-  RENTAL {
-    string public_id
-    string status
-    timestamp started_at
-  }
-  CHECKPOINT {
-    string type
-    string status
-    timestamp occurred_at
-  }
-  CAPTURE_SET {
-    string source
-    string status
-    string quality
-  }
-  PHOTO {
-    string face
-    string light
-    string camera
-    string sha256
-  }
-  DEFECT {
-    string class
-    json polygon
-    float confidence
-    string model_version
-  }
-  GRADE_RESULT {
-    string grade
-    string rule_version
-    json reasons
-  }
-  RECORD_CHAIN {
-    int seq
-    string payload_hash
-    string prev_hash
-    string signature
-  }
-  DIAGNOSTIC_RUN {
-    string device_serial
-    string os
-    string sha256
-  }
-  INSPECTION_FLAG {
-    string kind
-    json detail
-  }
-```
-
-전체 DDL은 [docs `db/V1__init.sql`](https://github.com/GAKDO/docs/blob/main/db/V1__init.sql)과 [`design/ddl.md`](https://github.com/GAKDO/docs/blob/main/design/ddl.md)에 있습니다.
-
-</details>
+전체 DDL은 [docs `db/V1__init.sql`](https://github.com/GAKDO/docs/blob/main/db/V1__init.sql)과 [`design/ddl.md`](https://github.com/GAKDO/docs/blob/main/design/ddl.md), 이후 변경은 각 서버 레포의 `src/main/resources/db/migration`에 있습니다.
 
 ## ✦ 📦 레포지토리
 

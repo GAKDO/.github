@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-label="TRACE CI/CD 파이프라인: 기능 브랜치에서 학교 서버 배포까지">
+  <style>
+    .t{font-family:Pretendard,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif}
+    .m{font-family:ui-monospace,Menlo,Consolas,monospace}
+    .flow{stroke-dasharray:6 8;animation:dash 1.2s linear infinite}
+    @keyframes dash{to{stroke-dashoffset:-14}}
+    .st{opacity:.6;animation:on 8s ease-in-out infinite}
+    @keyframes on{0%,30%,100%{opacity:.6}6%,22%{opacity:1}}
+    .ring{opacity:0;animation:ring 8s ease-in-out infinite}
+    @keyframes ring{0%,30%,100%{opacity:0}6%,22%{opacity:1}}
+    .d1{animation-delay:0s}.d2{animation-delay:1.3s}.d3{animation-delay:2.6s}.d4{animation-delay:3.9s}.d5{animation-delay:5.2s}.d6{animation-delay:6.5s}
+    .dot{animation:pulse 1.6s ease-in-out infinite}
+    @keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+    @media (prefers-reduced-motion:reduce){.flow,.st,.ring,.dot{animation:none;opacity:1}.ring{opacity:0}}
+  </style>
+  <rect width="1200" height="600" rx="20" fill="#0b0b0f"/>
+  <g class="t">
+    <text x="48" y="54" fill="#ff5a5f" font-size="14" font-weight="700" letter-spacing="2">CI / CD PIPELINE</text>
+    <text x="48" y="86" fill="#fff" font-size="26" font-weight="800" letter-spacing="-1">PR 하나가 gakdo.site에 닿기까지</text>
+    <text x="48" y="112" fill="#a1a1aa" font-size="14.5">GitHub Actions · 레포 13개가 같은 워크플로를 씁니다</text>
+    <g class="st d1" transform="translate(48 220)">
+    <rect width="200" height="150" rx="14" fill="#16161c" stroke="#2c2c33"/>
+    <rect class="ring d1" x=".5" y=".5" width="199" height="149" rx="13.5" fill="none" stroke="#c8161d" stroke-width="2"/>
+    <text x="18" y="30" fill="#ff5a5f" font-size="12" font-weight="700" letter-spacing="1">01 · BRANCH</text>
+    <text x="18" y="56" fill="#fff" font-size="19" font-weight="800">기능 브랜치</text>
+    <text x="18" y="80" fill="#a1a1aa" font-size="13">Spec Kit</text>
+    <text x="18" y="100" fill="#a1a1aa" font-size="13">명세 → 계획 → 작업</text>
+    <text x="18" y="120" fill="#a1a1aa" font-size="13">feature/&lt;번호&gt;-&lt;이름&gt;</text>
+    </g>
+    <g class="st d2" transform="translate(292 220)">
+    <rect width="170" height="150" rx="14" fill="#16161c" stroke="#2c2c33"/>
+    <rect class="ring d2" x=".5" y=".5" width="169" height="149" rx="13.5" fill="none" stroke="#c8161d" stroke-width="2"/>
+    <text x="18" y="30" fill="#ff5a5f" font-size="12" font-weight="700" letter-spacing="1">02 · PULL REQUEST</text>
+    <text x="18" y="56" fill="#fff" font-size="19" font-weight="800">PR → develop</text>
+    <text x="18" y="80" fill="#a1a1aa" font-size="13">백로그 ID</text>
+    <text x="18" y="100" fill="#a1a1aa" font-size="13">요구사항 ID</text>
+    <text x="18" y="120" fill="#a1a1aa" font-size="13">테스트 방법</text>
+    </g>
+    <g class="st d3" transform="translate(506 150)"><rect width="330" height="330" rx="14" fill="#16161c" stroke="#2c2c33"/>
+      <rect class="ring d3" x=".5" y=".5" width="329" height="329" rx="13.5" fill="none" stroke="#c8161d" stroke-width="2"/>
+      <text x="18" y="30" fill="#ff5a5f" font-size="12" font-weight="700" letter-spacing="1">03 · CHECKS</text>
+      <text x="18" y="56" fill="#fff" font-size="19" font-weight="800">자동 검사 · 리뷰</text>
+      <text x="18" y="82" fill="#71717a" font-size="12" font-weight="700" letter-spacing="1">BUILD · TEST</text>
+      <g transform="translate(18 92)"><rect width="141" height="40" rx="10" fill="#121216" stroke="#3a3a42"/><circle class="dot" cx="18" cy="20" r="5" fill="#22c55e"/><text x="32" y="18" fill="#e4e4e7" font-size="13" font-weight="700">backend-ci</text><text x="32" y="33" fill="#71717a" font-size="11.5">verify · JaCoCo 40%</text></g>
+      <g transform="translate(171 92)"><rect width="141" height="40" rx="10" fill="#121216" stroke="#3a3a42"/><circle class="dot" cx="18" cy="20" r="5" fill="#22c55e"/><text x="32" y="18" fill="#e4e4e7" font-size="13" font-weight="700">화면 CI</text><text x="32" y="33" fill="#71717a" font-size="11.5">tsc · Vitest</text></g>
+      <g transform="translate(18 140)"><rect width="141" height="40" rx="10" fill="#121216" stroke="#3a3a42"/><circle class="dot" cx="18" cy="20" r="5" fill="#22c55e"/><text x="32" y="18" fill="#e4e4e7" font-size="13" font-weight="700">python-ci</text><text x="32" y="33" fill="#71717a" font-size="11.5">ruff · pytest</text></g>
+      <g transform="translate(171 140)"><rect width="141" height="40" rx="10" fill="#121216" stroke="#3a3a42"/><circle class="dot" cx="18" cy="20" r="5" fill="#22c55e"/><text x="32" y="18" fill="#e4e4e7" font-size="13" font-weight="700">계약 검사</text><text x="32" y="33" fill="#71717a" font-size="11.5">redocly · schema</text></g>
+      <text x="18" y="206" fill="#71717a" font-size="12" font-weight="700" letter-spacing="1">QUALITY · SECURITY</text>
+      <g transform="translate(18 216)"><rect width="141" height="40" rx="10" fill="#121216" stroke="#3a3a42"/><circle class="dot" cx="18" cy="20" r="5" fill="#3b82f6"/><text x="32" y="18" fill="#e4e4e7" font-size="13" font-weight="700">SonarQube</text><text x="32" y="33" fill="#71717a" font-size="11.5">품질 게이트</text></g>
+      <g transform="translate(171 216)"><rect width="141" height="40" rx="10" fill="#121216" stroke="#3a3a42"/><circle class="dot" cx="18" cy="20" r="5" fill="#f97316"/><text x="32" y="18" fill="#e4e4e7" font-size="13" font-weight="700">CodeRabbit</text><text x="32" y="33" fill="#71717a" font-size="11.5">한국어 AI 리뷰</text></g>
+      <g transform="translate(18 264)"><rect width="294" height="40" rx="10" fill="#121216" stroke="#3a3a42"/><circle class="dot" cx="18" cy="20" r="5" fill="#eab308"/><text x="32" y="18" fill="#e4e4e7" font-size="13" font-weight="700">gitleaks</text><text x="32" y="33" fill="#71717a" font-size="11.5">모든 레포 비밀값 검사 · 키는 환경 변수로만</text></g>
+    </g>
+    <g class="st d4" transform="translate(880 170)">
+    <rect width="272" height="120" rx="14" fill="#16161c" stroke="#2c2c33"/>
+    <rect class="ring d4" x=".5" y=".5" width="271" height="119" rx="13.5" fill="none" stroke="#c8161d" stroke-width="2"/>
+    <text x="18" y="30" fill="#ff5a5f" font-size="12" font-weight="700" letter-spacing="1">04 · MERGE</text>
+    <text x="18" y="56" fill="#fff" font-size="19" font-weight="800">squash 머지</text>
+    <text x="18" y="80" fill="#a1a1aa" font-size="13">검사가 모두 초록일 때만</text>
+    <text x="18" y="100" fill="#a1a1aa" font-size="13">develop → main 릴리스</text>
+    </g>
+    <g class="st d5" transform="translate(880 326)">
+    <rect width="272" height="154" rx="14" fill="#c8161d" stroke="#c8161d"/>
+    <text x="18" y="30" fill="#ffd6d7" font-size="12" font-weight="700" letter-spacing="1">05 · DEPLOY</text>
+    <text x="18" y="56" fill="#fff" font-size="19" font-weight="800">학교 서버 배포</text>
+    <text x="18" y="80" fill="#ffe4e5" font-size="13">GHCR 이미지 빌드·푸시</text>
+    <text x="18" y="100" fill="#ffe4e5" font-size="13">Docker Compose pull · up</text>
+    <text x="18" y="120" fill="#ffe4e5" font-size="13">gakdo.site (HTTPS)</text>
+    </g>
+    <g class="st d6" transform="translate(48 510)"><rect width="1104" height="62" rx="14" fill="#121216" stroke="#3a3a42"/>
+      <rect class="ring d6" x=".5" y=".5" width="1103" height="61" rx="13.5" fill="none" stroke="#c8161d" stroke-width="2"/>
+      <text x="18" y="27" fill="#ff5a5f" font-size="12" font-weight="700" letter-spacing="1">06 · NOTIFY</text>
+      <text x="18" y="48" fill="#e4e4e7" font-size="14">Discord 알림 · 릴리스 노트 자동 작성 · 매일 03:00 DB 백업과 장애 알림 · 검수 결과로 모델 자동 재학습</text>
+    </g>
+    <g fill="none" stroke="#c8161d" stroke-width="2.5">
+      <path class="flow" d="M248 295 H 292"/>
+      <path class="flow" d="M462 295 H 506"/>
+      <path class="flow" d="M836 295 H 858 V 230 H 880"/>
+      <path class="flow" d="M1016 290 V 326"/>
+      <path class="flow" d="M1016 480 V 510"/>
+    </g>
+    <g fill="#c8161d">
+      <path d="M292 295 l-9 -5 v10z"/><path d="M506 295 l-9 -5 v10z"/><path d="M880 230 l-9 -5 v10z"/>
+      <path d="M1016 326 l-5 -9 h10z"/><path d="M1016 510 l-5 -9 h10z"/>
+    </g>
+      </g>
+</svg>
