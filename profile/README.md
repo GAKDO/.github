@@ -257,6 +257,46 @@
 
 <sub>2026.11.10 기준 화면입니다.</sub>
 
+## ✦ 📊 AI 탐지 결과 (v004)
+
+학습에 한 번도 쓰지 않은 기기 3대로 쟀습니다. mAP보다 **누가 손해를 보나**로 셉니다.
+
+| 지표 | 결과 |
+|---|---|
+| 놓친 흠집 기기 면(회사 손해) | **0 / 4** (흠집 있는 면 모두 찾음) |
+| 청구로 이어진 오탐(고객 손해) | **0건**: AI는 후보만, 관리자가 확정한 것만 등급·정산 |
+| 검증 사진 정밀도 / 재현율 | 0.71 / 0.60 (오탐 사진 15장, 이전 모델 48장) |
+| 부스 Jetson 탐지 시간 | 12장 **2.53초** (TensorRT FP16, 목표 30초) |
+
+측정 조건과 판마다 바꾼 것: [docs `contest/metrics/M3.md`](https://github.com/GAKDO/docs/blob/main/contest/metrics/M3.md)
+
+## ✦ 🔒 개인정보 원칙
+
+1. 사진은 **기기 외관만** 찍습니다. 공개 검증 페이지에는 해시·시각·등급만 있고 사람 정보는 없습니다.
+2. 밖으로 나가는 곳은 **메일(Gmail)과 챗봇(Gemini) 두 곳**뿐입니다. 챗봇에는 기기 일련번호를 뒤 4자리만 보내고, 테스트로 확인합니다.
+3. AI(챗봇·trace-mcp)는 **읽기만** 합니다. 봉인된 기록은 운영자도 고칠 수 없습니다.
+
+## ✦ 📚 오픈소스와 라이선스
+
+<details>
+<summary><b>우리가 쓴 오픈소스·모델·데이터</b> (우리가 만든 부분과 구분)</summary>
+<br/>
+
+| 이름 | 쓰는 곳 | 라이선스 |
+|---|---|---|
+| Ultralytics YOLO11-seg | 흠집 탐지 모델 구조·학습 도구 | AGPL-3.0 |
+| AI Hub 공개 데이터 | 탐지 사전학습 | AI Hub 이용 약관 |
+| OpenCV, LightGlue | 9면 정합 | Apache-2.0 |
+| MinIO | 사진 저장소 | AGPL-3.0 |
+| Ollama + qwen2.5:3b, Google Gemini API | 사이트 챗봇 | MIT + Qwen Research License, Google API 약관 |
+| Spring Boot · Spring Cloud Gateway · Nimbus JOSE | 서버 | Apache-2.0 |
+| React · Vite · three.js · React Three Fiber | 웹 | MIT |
+| PostgreSQL · RabbitMQ · Redis | 인프라 | PostgreSQL · MPL-2.0 · RSALv2/SSPLv1 |
+
+부스 사진 라벨링과 미세조정 가중치, 세 시점 비교·등급·정산 규칙, 해시 체인 봉인과 검증 페이지, 서버·웹·부스·에이전트 코드는 팀이 직접 만들었습니다. 상용화 때 AGPL·비상업 구성 요소를 어떻게 바꿀지는 [docs `contest/open-source-and-privacy.md`](https://github.com/GAKDO/docs/blob/main/contest/open-source-and-privacy.md)에 있습니다.
+
+</details>
+
 ## ✦ 🗂 ERD
 
 <p align="center">
