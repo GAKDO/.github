@@ -108,7 +108,7 @@
     </td>
     <td width="50%" valign="top">
       <img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/screens/booth.png" alt="부스 화면"/>
-      <b>부스 빠른 검사</b><br/><sub>Jetson이 12장을 찍고 TensorRT로 탐지해 1초 안팎으로 "문제 있음/없음"을 띄웁니다.</sub>
+      <b>부스 빠른 검사</b><br/><sub>Jetson이 12장을 찍고 TensorRT FP16으로 탐지해(12장 2.53초) 바로 "문제 있음/없음"을 띄웁니다.</sub>
     </td>
   </tr>
   <tr>
@@ -130,9 +130,9 @@
 |---|---|
 | 관리자 | 기종·기기 등록(라벨 사진 글자 읽기), 렌탈 열기, 출고·반납 시점 시작, 흠집 후보 확정·기각, 검사 결과·등급 보기, 렌탈 전후 진단 비교 |
 | 부스 | 기다리는 기기 고르기, 12장 촬영, Jetson 흠집 탐지, 사진 직접 업로드, 학습 데이터 촬영 |
-| 고객 | 수령 QR 하나로 가입·로그인과 렌탈 연결, 폰으로 수령 촬영, 출고 사진과 나란히 비교, 3D 리포트, 봉인 영수증 메일 |
-| 누구나 | 보유 노트북 목록·3D 흠집 위치, 기록 검증 페이지 |
-| 진단 에이전트 | 페어링 코드로 연결, 배터리·SSD·부품·잠금 상태 수집, 진단 JSON 검증 후 동의하면 업로드 |
+| 고객 | 이메일·구글·깃허브로 가입·로그인, 수령 QR 하나로 렌탈 연결, 폰으로 수령 촬영, 출고 사진과 나란히 비교, 3D 리포트, 봉인 영수증 메일, Claude에서 내 렌탈을 묻는 읽기 전용 MCP 서버(`trace-mcp`) |
+| 누구나 | 보유 노트북 목록·3D 흠집 위치, 기록 검증 페이지, 사이트 도우미 챗봇(Gemini, 한도를 넘으면 Ollama) |
+| 진단 에이전트 | 명령 한 줄로 설치·실행(`curl -fsSL https://gakdo.site/agent.sh \| sh -s <페어링 코드>`, Windows는 `agent.ps1`), 배터리·SSD·부품·잠금·보안 보호(Defender·Gatekeeper·SIP) 상태 수집, 진단 JSON 검증 후 동의하면 업로드 |
 
 </details>
 
@@ -203,7 +203,7 @@
 | **Frontend** | ![React](https://img.shields.io/badge/React_18-0b0b0f?style=flat&logo=react&logoColor=61DAFB) ![TypeScript](https://img.shields.io/badge/TypeScript-0b0b0f?style=flat&logo=typescript&logoColor=3178C6) ![Vite](https://img.shields.io/badge/Vite-0b0b0f?style=flat&logo=vite&logoColor=646CFF) ![Three.js](https://img.shields.io/badge/React_Three_Fiber-0b0b0f?style=flat&logo=threedotjs&logoColor=white) ![TanStack Query](https://img.shields.io/badge/TanStack_Query-0b0b0f?style=flat&logo=reactquery&logoColor=FF4154) |
 | **Backend** | ![Java](https://img.shields.io/badge/Java_21-0b0b0f?style=flat&logo=openjdk&logoColor=white) ![Spring Boot](https://img.shields.io/badge/Spring_Boot_3.5-0b0b0f?style=flat&logo=springboot&logoColor=6DB33F) ![Spring Security](https://img.shields.io/badge/Spring_Security-0b0b0f?style=flat&logo=springsecurity&logoColor=6DB33F) ![Spring Cloud Gateway](https://img.shields.io/badge/Spring_Cloud_Gateway-0b0b0f?style=flat&logo=spring&logoColor=6DB33F) ![JWT](https://img.shields.io/badge/JWT_RS256-0b0b0f?style=flat&logo=jsonwebtokens&logoColor=white) ![Flyway](https://img.shields.io/badge/Flyway-0b0b0f?style=flat&logo=flyway&logoColor=CC0200) |
 | **Database · Messaging** | ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-0b0b0f?style=flat&logo=postgresql&logoColor=4169E1) ![Redis](https://img.shields.io/badge/Redis-0b0b0f?style=flat&logo=redis&logoColor=FF4438) ![RabbitMQ](https://img.shields.io/badge/RabbitMQ-0b0b0f?style=flat&logo=rabbitmq&logoColor=FF6600) ![MinIO](https://img.shields.io/badge/MinIO-0b0b0f?style=flat&logo=minio&logoColor=C72E49) |
-| **AI · Vision** | ![PyTorch](https://img.shields.io/badge/PyTorch-0b0b0f?style=flat&logo=pytorch&logoColor=EE4C2C) ![YOLO11-seg](https://img.shields.io/badge/YOLO11--seg-0b0b0f?style=flat&logo=ultralytics&logoColor=white) ![ONNX](https://img.shields.io/badge/ONNX_Runtime-0b0b0f?style=flat&logo=onnx&logoColor=white) ![TensorRT](https://img.shields.io/badge/TensorRT_FP16-0b0b0f?style=flat&logo=nvidia&logoColor=76B900) ![OpenCV](https://img.shields.io/badge/OpenCV-0b0b0f?style=flat&logo=opencv&logoColor=5C3EE8) ![Label Studio](https://img.shields.io/badge/Label_Studio-0b0b0f?style=flat&logoColor=white) |
+| **AI · Vision** | ![PyTorch](https://img.shields.io/badge/PyTorch-0b0b0f?style=flat&logo=pytorch&logoColor=EE4C2C) ![YOLO11-seg](https://img.shields.io/badge/YOLO11--seg-0b0b0f?style=flat&logo=ultralytics&logoColor=white) ![ONNX](https://img.shields.io/badge/ONNX_Runtime-0b0b0f?style=flat&logo=onnx&logoColor=white) ![TensorRT](https://img.shields.io/badge/TensorRT_FP16-0b0b0f?style=flat&logo=nvidia&logoColor=76B900) ![OpenCV](https://img.shields.io/badge/OpenCV-0b0b0f?style=flat&logo=opencv&logoColor=5C3EE8) ![Label Studio](https://img.shields.io/badge/Label_Studio-0b0b0f?style=flat&logoColor=white) ![Gemini](https://img.shields.io/badge/Gemini_API-0b0b0f?style=flat&logo=googlegemini&logoColor=8E75B2) ![Ollama](https://img.shields.io/badge/Ollama-0b0b0f?style=flat&logo=ollama&logoColor=white) ![MCP](https://img.shields.io/badge/MCP-0b0b0f?style=flat&logo=modelcontextprotocol&logoColor=white) |
 | **Edge · Agent** | ![Jetson](https://img.shields.io/badge/Jetson_Orin_Nano-0b0b0f?style=flat&logo=nvidia&logoColor=76B900) ![Python](https://img.shields.io/badge/Python-0b0b0f?style=flat&logo=python&logoColor=3776AB) ![macOS](https://img.shields.io/badge/macOS-0b0b0f?style=flat&logo=apple&logoColor=white) ![Windows](https://img.shields.io/badge/Windows-0b0b0f?style=flat&logo=windows&logoColor=0078D4) |
 | **Infrastructure** | ![Docker](https://img.shields.io/badge/Docker_Compose-0b0b0f?style=flat&logo=docker&logoColor=2496ED) ![Nginx](https://img.shields.io/badge/Nginx-0b0b0f?style=flat&logo=nginx&logoColor=009639) ![Cloudflare](https://img.shields.io/badge/Cloudflare_DNS-0b0b0f?style=flat&logo=cloudflare&logoColor=F38020) ![GHCR](https://img.shields.io/badge/GHCR-0b0b0f?style=flat&logo=github&logoColor=white) |
 | **Contract · Quality** | ![OpenAPI](https://img.shields.io/badge/OpenAPI_3.1-0b0b0f?style=flat&logo=openapiinitiative&logoColor=6BA539) ![JSON Schema](https://img.shields.io/badge/JSON_Schema-0b0b0f?style=flat&logo=json&logoColor=white) ![SonarQube](https://img.shields.io/badge/SonarQube-0b0b0f?style=flat&logo=sonarqubeserver&logoColor=126ED3) ![CodeRabbit](https://img.shields.io/badge/CodeRabbit-0b0b0f?style=flat&logo=coderabbit&logoColor=FF570A) ![gitleaks](https://img.shields.io/badge/gitleaks-0b0b0f?style=flat&logoColor=white) |
@@ -231,12 +231,13 @@
 
 | 서비스 | 하는 일 |
 |---|---|
-| **auth-server** | 회원 가입·로그인, 수령 QR 하나로 렌탈 연결, 부스·에이전트 토큰, 진단 페어링 코드, JWKS, 봉인 영수증 메일 |
+| **auth-server** | 회원 가입·로그인(구글·깃허브 소셜 로그인 포함), 수령 QR 하나로 렌탈 연결, 부스·에이전트 토큰, 진단 페어링 코드, JWKS, 봉인 영수증 메일 |
 | **rental-server** | 기종·기기·렌탈과 출고·수령·반납 시점 상태(OPEN → CAPTURED → GRADED → SEALED) |
 | **capture-server** | 촬영 세트, 사전 서명 업로드 URL, 사진 해시 확인, 탐지 결과 저장, 사람 검수, 등급 A~D, 시점 비교 |
 | **diagnostics-server** | 진단 JSON 검증, 렌탈 전후 비교, 점검 플래그(배터리 급감·부품 바뀜 등) |
 | **report-server** | 렌탈별 해시 체인 연결, Ed25519 서명, 리포트, 공개 검증, 진행률 SSE |
 | **inspect-worker** | 고객 폰 사진을 부스와 같은 모델로 검사(ONNX, CPU) |
+| **chat-server** | 사이트 도우미 챗봇. Gemini 무료 API로 답하고 한도를 넘으면 Ollama(qwen2.5:3b)로 넘어감. 로그인한 사용자 토큰으로 내 렌탈을 **읽기만** 함 |
 
 </details>
 
@@ -367,7 +368,7 @@
 |---|---|---|
 | Ultralytics YOLO11-seg | 흠집 탐지 모델 구조·학습 도구 | AGPL-3.0 |
 | AI Hub 공개 데이터 | 탐지 사전학습 | AI Hub 이용 약관 |
-| OpenCV, LightGlue | 9면 정합 | Apache-2.0 |
+| OpenCV, LightGlue | 폰 사진 펼치기·정합 | Apache-2.0 |
 | MinIO | 사진 저장소 | AGPL-3.0 |
 | Ollama + qwen2.5:3b, Google Gemini API | 사이트 챗봇 | MIT + Qwen Research License, Google API 약관 |
 | Spring Boot · Spring Cloud Gateway · Nimbus JOSE | 서버 | Apache-2.0 |
@@ -399,11 +400,12 @@
 | [**capture_server**](https://github.com/GAKDO/capture_server) | 촬영 세트 · 사전 서명 URL · 탐지 · 검수 · 등급 | Spring Boot 3.5 · AWS SDK v2 |
 | [**diagnostics_server**](https://github.com/GAKDO/diagnostics_server) | 진단 검증 · 렌탈 전후 비교 · 점검 플래그 | Spring Boot 3.5 · JSON Schema |
 | [**report_server**](https://github.com/GAKDO/report_server) | 타임라인 · 해시 체인 · 검증 · SSE | Spring Boot 3.5 · Ed25519 |
-| [**booth**](https://github.com/GAKDO/booth) | 부스 Jetson 앱 · 학습 데이터 촬영 도구 | Python · OpenCV · TensorRT |
-| [**agent**](https://github.com/GAKDO/agent) | 노트북 진단 에이전트 (macOS · Windows) | Python |
+| [**booth**](https://github.com/GAKDO/booth) | 부스 Jetson 앱(빠른 검사) · 학습 데이터 촬영 도구 | Python · OpenCV · TensorRT |
+| [**agent**](https://github.com/GAKDO/agent) | 노트북 진단 에이전트 (macOS · Windows, 한 줄 설치) · 사용자용 MCP 서버 `trace-mcp` | Python |
 | [**ml**](https://github.com/GAKDO/ml) | 사진 검사 워커 · 데이터셋 빌더 · 학습 | PyTorch · YOLO11-seg · ONNX |
 | [**contracts**](https://github.com/GAKDO/contracts) | OpenAPI · 진단 JSON Schema · 이벤트 스키마 · 코드 값 | OpenAPI 3.1 · JSON Schema |
-| [**gitops**](https://github.com/GAKDO/gitops) | 배포 구성 | Docker Compose |
+| [**chat-server**](https://github.com/GAKDO/chat-server) | 사이트 도우미 챗봇 (Gemini → Ollama) | Python · FastAPI |
+| [**gitops**](https://github.com/GAKDO/gitops) | 배포 구성 · 학교 서버 자동 배포 | Docker Compose |
 | [**docs**](https://github.com/GAKDO/docs) | 설계서 · 결정 기록 · 안내서 · 팀 운영 | Markdown · Spec Kit |
 
 <br/>
