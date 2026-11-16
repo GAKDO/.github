@@ -11,6 +11,10 @@
 <a href="https://gakdo.site"><img src="https://img.shields.io/badge/서비스-gakdo.site-c8161d?style=for-the-badge&labelColor=0b0b0f" alt="gakdo.site"/></a>
 <a href="https://gakdo.github.io/docs/api/mvp.html"><img src="https://img.shields.io/badge/API_명세서-Redoc-ffffff?style=for-the-badge&labelColor=0b0b0f" alt="API 명세서"/></a>
 <a href="https://gakdo.github.io/docs/guide/"><img src="https://img.shields.io/badge/안내서-MVP_Guide-ffffff?style=for-the-badge&labelColor=0b0b0f" alt="MVP 안내서"/></a>
+<br/>
+<a href="https://drive.google.com/file/d/1qA8ufsnafkOHoUNTDZUvXkr4jT5mGG35/view"><img src="https://img.shields.io/badge/발표_영상-4분_57초-c8161d?style=for-the-badge&labelColor=0b0b0f" alt="발표 영상"/></a>
+<a href="https://github.com/GAKDO/docs/blob/main/contest/presentation/TRACE-presentation.pdf"><img src="https://img.shields.io/badge/발표_자료-PPT_18장-ffffff?style=for-the-badge&labelColor=0b0b0f" alt="발표 자료"/></a>
+<a href="https://github.com/GAKDO/docs/blob/main/contest/process.md"><img src="https://img.shields.io/badge/개발_과정-10.30_~_11.16-ffffff?style=for-the-badge&labelColor=0b0b0f" alt="개발 과정"/></a>
 
 </div>
 
@@ -19,6 +23,55 @@
 | 📖 도메인 | 📋 API 명세서 | 🧭 처음 보는 분을 위한 안내서 |
 |:---:|:---:|:---:|
 | [gakdo.site](https://gakdo.site) | [gakdo.github.io/docs/api/mvp.html](https://gakdo.github.io/docs/api/mvp.html) | [gakdo.github.io/docs/guide](https://gakdo.github.io/docs/guide/) |
+
+## ✦ 🎬 발표 영상 · 발표 자료
+
+2026 IT Festival 캡스톤디자인 경진대회에 제출한 영상과 PPT입니다(2026.11.16 제출).
+
+<p align="center">
+  <a href="https://drive.google.com/file/d/1qA8ufsnafkOHoUNTDZUvXkr4jT5mGG35/view">
+    <img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/presentation/video-cover.jpg" width="80%" alt="TRACE 발표 영상 보기 (4분 57초)"/>
+  </a>
+  <br/>
+  <sub>그림을 누르면 발표 영상(4분 57초)이 열립니다.</sub>
+</p>
+
+| 자료 | 바로 가기 |
+|---|---|
+| 🎬 발표 영상 (4분 57초) | [영상 보기](https://drive.google.com/file/d/1qA8ufsnafkOHoUNTDZUvXkr4jT5mGG35/view) |
+| 📑 발표 PPT (18장) | [GitHub에서 넘겨 보기(PDF)](https://github.com/GAKDO/docs/blob/main/contest/presentation/TRACE-presentation.pdf) · [원본 pptx](https://github.com/GAKDO/docs/blob/main/contest/presentation/TRACE-presentation.pptx) |
+| 🗂 발표 순서와 수치 근거 | [docs `contest/presentation`](https://github.com/GAKDO/docs/tree/main/contest/presentation) |
+
+<table>
+  <tr>
+    <td width="33%" valign="top">
+      <a href="https://github.com/GAKDO/docs/blob/main/contest/presentation/TRACE-presentation.pdf"><img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/presentation/slide-three-points.jpg" alt="세 시점을 같은 방법으로 찍어 하나의 기록으로 잇습니다"/></a>
+      <sub>출고·수령·반납을 같은 방법으로 찍어 하나의 기록으로</sub>
+    </td>
+    <td width="33%" valign="top">
+      <a href="https://github.com/GAKDO/docs/blob/main/contest/presentation/TRACE-presentation.pdf"><img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/presentation/slide-review.jpg" alt="AI는 후보를 넓게 잡고 사람이 확정한 흠집만 기록됩니다"/></a>
+      <sub>AI 후보 106개 중 사람이 47개를 흠집으로 확정</sub>
+    </td>
+    <td width="33%" valign="top">
+      <a href="https://github.com/GAKDO/docs/blob/main/contest/presentation/TRACE-presentation.pdf"><img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/presentation/slide-return-report.jpg" alt="반납할 때 다시 검사해 이전부터 있던 흠집과 새로 발견한 흠집을 나눕니다"/></a>
+      <sub>반납 리포트: 이전부터 있던 흠집과 새 흠집</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="33%" valign="top">
+      <a href="https://github.com/GAKDO/docs/blob/main/contest/presentation/TRACE-presentation.pdf"><img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/presentation/slide-seal.jpg" alt="확정한 기록은 앞 기록과 이어 서명하고 누구나 확인할 수 있습니다"/></a>
+      <sub>해시 체인과 서명으로 봉인, 누구나 검증</sub>
+    </td>
+    <td width="33%" valign="top">
+      <a href="https://github.com/GAKDO/docs/blob/main/contest/presentation/TRACE-presentation.pdf"><img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/presentation/slide-booth.jpg" alt="도면을 그리고 촬영 부스를 직접 만들었습니다"/></a>
+      <sub>도면을 그려 직접 만든 촬영 부스</sub>
+    </td>
+    <td width="33%" valign="top">
+      <a href="https://github.com/GAKDO/docs/blob/main/contest/presentation/TRACE-presentation.pdf"><img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/presentation/slide-model.jpg" alt="반사와 먼지를 흠집으로 잡아서 라벨을 고치고 다시 학습했습니다"/></a>
+      <sub>라벨을 고쳐 다시 학습: 잘못 잡은 사진 48장 → 15장</sub>
+    </td>
+  </tr>
+</table>
 
 ## ✦ 무엇을 해결하나요
 
@@ -114,6 +167,34 @@
 </table>
 
 <sub>Spec Kit으로 명세 → 계획 → 작업 → 구현 순서를 지키고, 계약(contracts)을 먼저 고정한 뒤 레포마다 따로 개발합니다.</sub>
+
+## ✦ 🛠 개발 과정
+
+18일 동안 설계 → 계약 고정 → 데이터 → 모델 → 완성도 → 제출 순서로 만들었습니다. 날짜별 기록과 PR 링크는 [docs `contest/process.md`](https://github.com/GAKDO/docs/blob/main/contest/process.md)에 있습니다.
+
+| 기간 | 단계 | 한 일 |
+|---|---|---|
+| 10.30 ~ 11.01 | **설계** | 요구사항 50개와 기능 27개를 정하고 레포·담당을 나눔. 강사님 리뷰로 기기 관리 설계 보강, 촬영 부스 설계 |
+| 11.02 ~ 11.03 | **계약 고정 · 첫 배포** | OpenAPI·이벤트·진단 JSON 계약 1.0.0 고정, 서버 6개 첫 기능, 부스 1호기 제작. 범위를 최소 MVP로 다시 잡고 학교 서버에 올려 gakdo.site 개통 |
+| 11.04 ~ 11.06 | **데이터 · 기능** | MacBook Air M2 15대를 조명을 바꿔 가며 촬영하고 Label Studio로 흠집 표시. 회원·메일 인증·진단·봉인 영수증, macOS·Windows 진단 에이전트 |
+| 11.07 ~ 11.09 | **모델 · 사람 검수** | v001(기기 면 2/6 → 6/6) → 증강 실험에서 먼지·반사 오탐 발견 → "AI는 후보, 사람이 확정" 방식 도입 → v004(잘못 잡은 사진 48 → 15장). 서버와 부스에 같은 모델 |
+| 11.10 ~ 11.12 | **완성도** | 부스 다시 제작, 촬영 한 단계 5초 → 0.3~0.5초, 자동 배포(교체 중 요청 실패 0건), 검수 결과를 다시 학습 데이터로 보내는 흐름, 보안 점검, 대여 담당자 다섯 분 설문 |
+| 11.13 ~ 11.16 | **촬영 · 제출** | 코드 프리즈 뒤 출고 → 수령 → 반납 전체 흐름 촬영, 발표 PPT와 영상 제작, 11.16 제출. 본선 11.19 |
+
+<details>
+<summary><b>과정에서 바꾼 결정 네 가지</b></summary>
+<br/>
+
+| 처음 계획 | 바꾼 것 | 이유 |
+|---|---|---|
+| 기능 27개를 한꺼번에 | 부스 12장 → 판정 → 관리자 화면이 끝까지 도는 최소 MVP부터 | 11/3 강사님 리뷰. 끝까지 도는 흐름을 먼저 확인하고 그 위에 단계를 얹음 |
+| 쿠버네티스 클러스터 | 학교 서버 Docker Compose | 시연에 필요한 것은 안정적으로 떠 있는 서비스라서 |
+| mAP로 모델 고르기 | "이 면에 흠집이 있나"로 고르기 | 흠집이 적은 부스 사진에서는 mAP가 실제 판정과 따로 움직임 |
+| AI 판정을 그대로 등급에 | 사람이 확정한 흠집만 등급·봉인에 | 먼지·테이프 반사 오탐으로 고객이 손해 보지 않게 |
+
+자세한 이유는 [docs `decisions.md`](https://github.com/GAKDO/docs/blob/main/decisions.md), 날마다의 기록은 [docs `team/standup`](https://github.com/GAKDO/docs/tree/main/team/standup)에 있습니다.
+
+</details>
 
 ## ✦ 💻 Tech Stacks
 
@@ -328,7 +409,7 @@
 <br/>
 
 <div align="center">
-  <a href="https://gakdo.site"><b>gakdo.site</b></a> · <a href="https://gakdo.github.io/docs/api/mvp.html">API 명세서</a> · <a href="https://github.com/GAKDO/docs">docs</a> · <a href="https://github.com/GAKDO/contracts">contracts</a>
+  <a href="https://gakdo.site"><b>gakdo.site</b></a> · <a href="https://gakdo.github.io/docs/api/mvp.html">API 명세서</a> · <a href="https://drive.google.com/file/d/1qA8ufsnafkOHoUNTDZUvXkr4jT5mGG35/view">발표 영상</a> · <a href="https://github.com/GAKDO/docs/blob/main/contest/presentation/TRACE-presentation.pdf">발표 자료</a> · <a href="https://github.com/GAKDO/docs">docs</a> · <a href="https://github.com/GAKDO/contracts">contracts</a>
   <br/><br/>
   <img src="https://img.shields.io/badge/-%E2%9C%A6%20TRACE-c8161d?style=flat-square" alt="TRACE"/>
 </div>
