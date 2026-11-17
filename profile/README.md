@@ -212,7 +212,7 @@
 ## ✦ 🏗 System Architecture
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/architecture.svg" width="100%" alt="TRACE 서비스 구성도"/>
+  <a href="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/architecture.png"><img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/architecture.png" width="100%" alt="TRACE 시스템 아키텍처: 사용자·기기, 학교 서버 Docker Compose의 서비스, 공유 인프라, 외부 연동, AI 학습·모델 배포, CI/CD"/></a>
 </p>
 
 > 서비스마다 레포·이미지·DB 스키마가 따로인 **마이크로서비스**입니다. 서버끼리는 REST로 서로 부르지 않고 이벤트로만 주고받아, 한 서버가 멈춰도 다른 서버의 기록은 남습니다.
