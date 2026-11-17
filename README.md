@@ -7,3 +7,4 @@ GAKDO 조직의 공용 설정 레포입니다.
 
 그림 색은 https://gakdo.site 와 같습니다(배경 `#0b0b0f`, 강조 `#c8161d`).
 - `profile/assets/presentation/`: 발표 영상 표지와 발표 PPT 장면(제출한 영상에서 뽑은 그림). 발표 PPT 원본은 GAKDO/docs `contest/presentation/`
+- `profile/assets/architecture.png`: 시스템 아키텍처 그림(2026-11-17, 밝은 바탕). 이전 그림 `architecture.svg`는 남겨 둠
