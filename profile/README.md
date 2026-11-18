@@ -12,7 +12,7 @@
 <a href="https://gakdo.github.io/docs/api/mvp.html"><img src="https://img.shields.io/badge/API_명세서-Redoc-ffffff?style=for-the-badge&labelColor=0b0b0f" alt="API 명세서"/></a>
 <a href="https://gakdo.github.io/docs/guide/"><img src="https://img.shields.io/badge/안내서-MVP_Guide-ffffff?style=for-the-badge&labelColor=0b0b0f" alt="MVP 안내서"/></a>
 <br/>
-<a href="https://drive.google.com/file/d/1qA8ufsnafkOHoUNTDZUvXkr4jT5mGG35/view"><img src="https://img.shields.io/badge/발표_영상-4분_57초-c8161d?style=for-the-badge&labelColor=0b0b0f" alt="발표 영상"/></a>
+<a href="https://github.com/GAKDO/.github/releases/download/presentation-2026-11/TRACE-presentation-2026-11.mp4"><img src="https://img.shields.io/badge/발표_영상-5분_5초-c8161d?style=for-the-badge&labelColor=0b0b0f" alt="발표 영상"/></a>
 <a href="https://github.com/GAKDO/docs/blob/main/contest/presentation/TRACE-presentation.pdf"><img src="https://img.shields.io/badge/발표_자료-PPT_18장-ffffff?style=for-the-badge&labelColor=0b0b0f" alt="발표 자료"/></a>
 <a href="https://github.com/GAKDO/docs/blob/main/contest/process.md"><img src="https://img.shields.io/badge/개발_과정-10.30_~_11.16-ffffff?style=for-the-badge&labelColor=0b0b0f" alt="개발 과정"/></a>
 
@@ -29,16 +29,16 @@
 2026 IT Festival 캡스톤디자인 경진대회에 제출한 영상과 PPT입니다(2026.11.16 제출).
 
 <p align="center">
-  <a href="https://drive.google.com/file/d/1qA8ufsnafkOHoUNTDZUvXkr4jT5mGG35/view">
-    <img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/presentation/video-cover.jpg" width="80%" alt="TRACE 발표 영상 보기 (4분 57초)"/>
+  <a href="https://github.com/GAKDO/.github/releases/download/presentation-2026-11/TRACE-presentation-2026-11.mp4">
+    <img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/presentation/video-cover.jpg" width="80%" alt="TRACE 발표 영상 보기 (5분 5초)"/>
   </a>
   <br/>
-  <sub>그림을 누르면 발표 영상(4분 57초)이 열립니다.</sub>
+  <sub>그림을 누르면 발표 영상(5분 5초)이 열립니다.</sub>
 </p>
 
 | 자료 | 바로 가기 |
 |---|---|
-| 🎬 발표 영상 (4분 57초) | [영상 보기](https://drive.google.com/file/d/1qA8ufsnafkOHoUNTDZUvXkr4jT5mGG35/view) |
+| 🎬 발표 영상 (5분 5초) | [영상 받기(mp4)](https://github.com/GAKDO/.github/releases/download/presentation-2026-11/TRACE-presentation-2026-11.mp4) |
 | 📑 발표 PPT (18장) | [GitHub에서 넘겨 보기(PDF)](https://github.com/GAKDO/docs/blob/main/contest/presentation/TRACE-presentation.pdf) · [원본 pptx](https://github.com/GAKDO/docs/blob/main/contest/presentation/TRACE-presentation.pptx) |
 | 🗂 발표 순서와 수치 근거 | [docs `contest/presentation`](https://github.com/GAKDO/docs/tree/main/contest/presentation) |
 
@@ -422,7 +422,7 @@
 <br/>
 
 <div align="center">
-  <a href="https://gakdo.site"><b>gakdo.site</b></a> · <a href="https://gakdo.github.io/docs/api/mvp.html">API 명세서</a> · <a href="https://drive.google.com/file/d/1qA8ufsnafkOHoUNTDZUvXkr4jT5mGG35/view">발표 영상</a> · <a href="https://github.com/GAKDO/docs/blob/main/contest/presentation/TRACE-presentation.pdf">발표 자료</a> · <a href="https://github.com/GAKDO/docs">docs</a> · <a href="https://github.com/GAKDO/contracts">contracts</a>
+  <a href="https://gakdo.site"><b>gakdo.site</b></a> · <a href="https://gakdo.github.io/docs/api/mvp.html">API 명세서</a> · <a href="https://github.com/GAKDO/.github/releases/download/presentation-2026-11/TRACE-presentation-2026-11.mp4">발표 영상</a> · <a href="https://github.com/GAKDO/docs/blob/main/contest/presentation/TRACE-presentation.pdf">발표 자료</a> · <a href="https://github.com/GAKDO/docs">docs</a> · <a href="https://github.com/GAKDO/contracts">contracts</a>
   <br/><br/>
   <img src="https://img.shields.io/badge/-%E2%9C%A6%20TRACE-c8161d?style=flat-square" alt="TRACE"/>
 </div>
