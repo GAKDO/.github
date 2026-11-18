@@ -28,13 +28,9 @@
 
 2026 IT Festival 캡스톤디자인 경진대회에 제출한 영상과 PPT입니다(2026.11.16 제출).
 
-<p align="center">
-  <a href="https://github.com/GAKDO/.github/releases/download/presentation-2026-11/TRACE-presentation-2026-11.mp4">
-    <img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/presentation/video-cover.jpg" width="80%" alt="TRACE 발표 영상 보기 (5분 5초)"/>
-  </a>
-  <br/>
-  <sub>그림을 누르면 발표 영상(5분 5초, mp4)을 내려받습니다.</sub>
-</p>
+https://github.com/user-attachments/assets/47b0c93a-bde8-4afb-9711-261df7d50443
+
+<p align="center"><sub>README에서 바로 재생되는 720p 압축본입니다. 원본(1080p)은 아래 표에서 내려받을 수 있습니다.</sub></p>
 
 | 자료 | 바로 가기 |
 |---|---|
