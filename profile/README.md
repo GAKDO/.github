@@ -33,7 +33,7 @@
     <img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/presentation/video-cover.jpg" width="80%" alt="TRACE 발표 영상 보기 (5분 5초)"/>
   </a>
   <br/>
-  <sub>그림을 누르면 발표 영상(5분 5초)이 열립니다.</sub>
+  <sub>그림을 누르면 발표 영상(5분 5초, mp4)을 내려받습니다.</sub>
 </p>
 
 | 자료 | 바로 가기 |
