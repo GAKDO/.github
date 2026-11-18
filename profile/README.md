@@ -73,6 +73,17 @@
   </tr>
 </table>
 
+## ✦ 🎤 발표 자료 (2026 IT Festival)
+
+조선대학교 2026 IT Festival · AI·SW 캡스톤디자인 프로젝트 경진대회 발표에 쓴 자료입니다. 공개 저장소라 누구나 내려받을 수 있습니다.
+
+| 자료 | 내용 | 받기 |
+|:---:|:---:|:---:|
+| 📊 발표 슬라이드 (19장, PPTX 10MB) | 왜 만들었나 → 목차 → 구성과 기술(아키텍처) → 시연(출고·검수·수령·진단·반납·봉인) → 촬영 부스 → 흠집 탐지 모델 | [TRACE-presentation-2026-11.pptx](https://github.com/GAKDO/.github/releases/download/presentation-2026-11/TRACE-presentation-2026-11.pptx) |
+| 🎬 발표 영상 (5분, 1080p MP4 113MB) | 발표 슬라이드를 따라 설명하는 영상 | [TRACE-presentation-2026-11.mp4](https://github.com/GAKDO/.github/releases/download/presentation-2026-11/TRACE-presentation-2026-11.mp4) |
+
+<sub>두 파일은 이 저장소의 <a href="https://github.com/GAKDO/.github/releases/tag/presentation-2026-11">릴리스 presentation-2026-11</a>에 있습니다.</sub>
+
 ## ✦ 무엇을 해결하나요
 
 노트북을 빌리고 돌려줄 때마다 "이 흠집, 원래 있던 거예요"라는 다툼이 생깁니다. TRACE는 **출고 · 수령 · 반납** 세 시점에 같은 방식으로 사진을 남기고, AI가 흠집 후보를 찾고, 사람이 확정한 기록만 **해시 체인으로 봉인**합니다. 봉인된 기록은 누구나 검증 페이지에서 고쳐지지 않았는지 확인할 수 있습니다.
