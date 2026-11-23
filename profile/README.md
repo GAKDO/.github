@@ -109,13 +109,25 @@
 
 ## ✦ 🗂 ERD
 
+ERD는 **논리 모델**(업무 엔터티·속성·관계)과 **물리 모델**(실제 PostgreSQL 표·칼럼·타입·키) 두 장입니다. 그림을 누르면 원본 크기로 열립니다.
+
+### 논리 모델 · 엔터티 33개
+
 <p align="center">
-  <a href="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/erd.svg"><img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/erd.svg" width="100%" alt="TRACE ERD: 서버별 스키마 7개, 테이블 36개, crow's foot 표기"/></a>
+  <a href="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/erd-logical.svg"><img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/erd-logical.svg" width="100%" alt="TRACE 논리 ERD: 업무 영역 6개, 엔터티 33개와 관계"/></a>
 </p>
 
-> 그림을 누르면 원본 크기로 열립니다. 서버마다 PostgreSQL 스키마를 나누고(rental · auth · capture · inspection · diagnostics · report · ml), 서버끼리는 외래 키 없이 공개 ID로만 가리킵니다.
+> 모든 기록은 **검사 시점**(출고·수령·반납)에 매달립니다. 서버가 다른 관계도 논리적으로는 관계라서 `FK → 검사 시점`처럼 대상을 적었습니다.
 
-전체 DDL은 [docs `db/V1__init.sql`](https://github.com/GAKDO/docs/blob/main/db/V1__init.sql)과 [`design/ddl.md`](https://github.com/GAKDO/docs/blob/main/design/ddl.md), 이후 변경은 각 서버 레포의 `src/main/resources/db/migration`에 있습니다.
+### 물리 모델 · 테이블 37개
+
+<p align="center">
+  <a href="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/erd.svg"><img src="https://raw.githubusercontent.com/GAKDO/.github/main/profile/assets/erd.svg" width="100%" alt="TRACE 물리 ERD: 스키마 7개, 테이블 37개, 칼럼·타입·키"/></a>
+</p>
+
+> 서버마다 PostgreSQL 스키마를 나누고(rental · auth · capture · inspection · diagnostics · report · ml), 모든 표의 기본 키는 `bigint id`, 밖에는 `public_id`(NanoID 21자)를 씁니다. 선은 같은 서버 안의 외래 키이고, 서버끼리는 외래 키 없이 `public_id` 값으로만 가리킵니다(`→ checkpoint`).
+
+논리 → 물리로 옮기며 바꾼 것(대리 키, 서버 사이 FK 대신 값, 구현 칼럼·사본 표)과 정규화 점검은 [docs `design/ddl.md`](https://github.com/GAKDO/docs/blob/main/design/ddl.md#erd-1120-지금-스키마)·[`design/erd-normalization.md`](https://github.com/GAKDO/docs/blob/main/design/erd-normalization.md)에 있습니다. 두 그림은 docs `scripts/erd/`로 그리고, 이후 스키마 변경은 각 서버 레포의 `src/main/resources/db/migration`에 있습니다.
 
 ## ✦ 🎬 발표 영상 · 발표 자료
 
